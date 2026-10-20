@@ -1,0 +1,1848 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+/* If the page is opened as /folder instead of /folder/, add the slash so the
+   covers, PDFs and other files next to index.html are found. */
+(function () { var p = location.pathname; if (!/\/$/.test(p) && !/\.[a-z0-9]+$/i.test(p)) location.replace(p + "/" + location.search + location.hash); })();
+</script>
+<title>Swayam Shakya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..900,0..100,0..1;1,9..144,400..900,0..100,0..1&family=IBM+Plex+Mono:wght@400;500;600&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=VT323&display=swap">
+<meta name="description" content="Writer and Computer Science (Honours) student at Algoma University. Read The Mirage in the Mist and The Hanging Lord in full, and see six software projects, two websites and the GYRO-76 essay.">
+<meta name="author" content="Swayam Shakya">
+<meta name="theme-color" content="#e8ddc5">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b1b18'/%3E%3Cpath d='M6 26a20 20 0 0 1 20-20' stroke='%23d9a64a' stroke-width='3' fill='none'/%3E%3Cpath d='M10 26a16 16 0 0 1 16-16' stroke='%23b5562b' stroke-width='3' fill='none'/%3E%3Cpath d='M14 26a12 12 0 0 1 12-12' stroke='%23713b36' stroke-width='3' fill='none'/%3E%3Cpath d='M18 26a8 8 0 0 1 8-8' stroke='%23565c43' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+<!-- Link preview for LinkedIn and other sites.
+     After you host this folder, replace https://requiemdoomed.github.io/Portfolio-SwayamShakya/ below with the page's full address,
+     e.g. https://your-name.github.io/showcase/ (keep the trailing slash). -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Swayam Shakya: novels and projects">
+<meta property="og:description" content="Writer and Computer Science (Honours) student at Algoma University. Read The Mirage in the Mist and The Hanging Lord in full, and see six software projects, two websites and the GYRO-76 essay.">
+<meta property="og:url" content="https://requiemdoomed.github.io/Portfolio-SwayamShakya/">
+<meta property="og:image" content="https://requiemdoomed.github.io/Portfolio-SwayamShakya/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:alt" content="Swayam Shakya, with the covers of The Mirage in the Mist, The Hanging Lord and The Lotus Blade and The Empty Hand">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+[hidden] { display: none !important; }
+
+/* Layout: a 1970s lobby with two doors. One opens on a theatre stage where the
+   novels play as acts; the other on a beige computer whose amber screen lists
+   the projects. Each world is a full-width band with its own type and colour,
+   and the sticky header changes with them. One committed look, no dark variant. */
+:root {
+  color-scheme: light;
+  /* lobby: a 70s paperback */
+  --paper: #e8ddc5; --paper-2: #d6c6a7; --card: #f4ecda;
+  --ink: #1b1b18; --ink-soft: #4d483d; --black: #0c0c0b;
+  --amber: #d9a64a; --rust: #b5562b; --oxblood: #713b36; --olive: #565c43; --navy: #202733;
+  /* theatre */
+  --night: #140b17; --plum: #2b1530; --velvet: #7d1a2a; --velvet-hi: #a8303f; --velvet-dk: #4a0d18; --velvet-xdk: #25060c;
+  --gold: #d6ad57; --gold-hi: #f3dc9b; --gold-lo: #8a6a2a; --parchment: #f1e6cc; --lilac: #c9b9d1; --page: #fffdf8;
+  /* computer room */
+  --room: #17130e; --room-2: #0e0b07;
+  --plastic: #d8ceb4; --plastic-hi: #efe8d5; --plastic-lo: #a4977a; --plastic-dk: #7a6f57; --plastic-ink: #4f4736;
+  --glass: #0b0804; --glass-hi: #1e1608;
+  --ph: #ffb43d; --ph-dim: #c98a1c; --ph-faint: rgb(255 180 61 / .14); --ph-glow: rgb(255 170 40 / .55);
+  --win: #d9d9d6; --win-hi: #ffffff; --win-ink: #111111; --win-soft: #3b3b3b;
+  --gb-paper: #f7f5ee; --gb-bar: #dcebd5; --gb-ink: #26262a;
+  /* type */
+  --f-retro: "Fraunces", "Cooper Black", Georgia, serif;
+  --f-book: "EB Garamond", Garamond, "Times New Roman", serif;
+  --f-fell: "IM Fell English", "EB Garamond", Georgia, serif;
+  --f-fellsc: "IM Fell English SC", "IM Fell English", Georgia, serif;
+  --f-crt: "VT323", "IBM Plex Mono", ui-monospace, monospace;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  /* shared */
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  --s: clamp(8px, 1vw, 12px);
+  --stripes: linear-gradient(to bottom, var(--amber) 0 25%, var(--rust) 0 50%, var(--oxblood) 0 75%, var(--olive) 0);
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .11 0 0 0 0 .09 0 0 0 0 .05 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+:root[data-phosphor="green"] { --ph: #6dff95; --ph-dim: #34c262; --ph-faint: rgb(109 255 149 / .12); --ph-glow: rgb(70 255 130 / .45); }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html.reading { overflow: hidden; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--f-book); font-size: 1.15rem; line-height: 1.55; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--focus, var(--rust)); outline-offset: 3px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+[id] { scroll-margin-top: 4.5rem; }
+section[id] { scroll-margin-top: 3.5rem; }
+
+/* ───────── header: changes with the world beneath it ───────── */
+.hdr {
+  --hb: rgb(232 221 197 / .94); --hf: var(--ink); --hl: rgb(27 27 24 / .22); --ha: var(--rust);
+  --hfont: var(--f-retro); --hsize: 1.02rem; --hweight: 700;
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40;
+  background: var(--hb); color: var(--hf); border-bottom: 1px solid var(--hl);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  transition: background-color .45s ease, color .45s ease, border-color .45s ease;
+}
+.hdr[data-world="novels"] { --hb: rgb(20 11 23 / .92); --hf: var(--parchment); --hl: rgb(214 173 87 / .35); --ha: var(--gold); --hfont: var(--f-fellsc); --hsize: 1.08rem; --hweight: 400; --focus: var(--gold-hi); }
+.hdr[data-world="projects"] { --hb: rgb(11 8 4 / .93); --hf: var(--ph); --hl: var(--ph-dim); --ha: var(--ph); --hfont: var(--f-crt); --hsize: 1.45rem; --hweight: 400; --focus: var(--ph); }
+.hdr-in { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 3.5rem; }
+.hdr a { text-decoration: none; }
+.hdr-name { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--hfont); font-size: calc(var(--hsize) * 1.08); font-weight: var(--hweight); font-variation-settings: "SOFT" 100, "WONK" 1; line-height: 1; }
+.mark { width: 1.55rem; height: 1.55rem; flex: none; border-radius: 0 100% 0 0; background: radial-gradient(circle at 0 100%, transparent 26%, var(--amber) 26% 44%, var(--rust) 44% 62%, var(--oxblood) 62% 80%, var(--olive) 80% 98%, transparent 98%); }
+.hdr nav { display: flex; gap: clamp(.9rem, 3vw, 1.75rem); min-width: 0; }
+.hdr nav a { font-family: var(--hfont); font-size: var(--hsize); font-weight: var(--hweight); line-height: 1; padding: .55rem 0; letter-spacing: .01em; }
+.hdr nav a[aria-current="true"] { box-shadow: inset 0 -2px 0 var(--ha); }
+.hdr nav a:hover { color: var(--ha); }
+@media (max-width: 520px) { .hdr-full { display: none; } }
+
+/* ───────── lobby ───────── */
+.lb { position: relative; overflow: clip; padding-block: clamp(2.25rem, 6vw, 4.5rem) clamp(3rem, 7vw, 5.5rem); background: radial-gradient(ellipse 70% 55% at 90% 0%, rgb(217 166 74 / .25), transparent 65%), var(--paper); --r0: 2.75rem; }
+.grain::after { content: ""; position: absolute; inset: 0; background-image: var(--grain); opacity: .32; pointer-events: none; mix-blend-mode: multiply; }
+.lb > .wrap { position: relative; z-index: 1; }
+.lb-hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+@media (min-width: 900px) { .lb-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 16.5rem); align-items: end; padding-right: calc(var(--r0) + 4 * var(--s) + 1.75rem); } }
+.lb-kicker { text-wrap: balance; max-width: 46rem; margin: 0 0 1.1rem; font-family: var(--f-mono); font-size: .78rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+.lb-kicker span { white-space: nowrap; }
+@media (max-width: 480px) { .lb-kicker { letter-spacing: .08em; } }
+.lb-name { margin: 0; font-family: var(--f-retro); font-weight: 600; font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144; font-size: clamp(4.6rem, 19vw, 9.4rem); line-height: .86; letter-spacing: -.05em; color: var(--black); }
+.lb-name span { display: block; }
+.lb-cred { margin: 1.5rem 0 0; padding-top: 1.1rem; max-width: 34rem; display: grid; gap: .15rem; border-top: 1px solid rgb(12 12 11 / .28); font-size: clamp(1.12rem, 1.6vw, 1.3rem); line-height: 1.4; color: var(--black); }
+.lb-cred span + span { font-style: italic; color: var(--ink-soft); }
+.lb-inside { margin: 0; display: grid; gap: .55rem; font-family: var(--f-mono); font-size: .8rem; }
+.lb-inside div { display: flex; align-items: baseline; gap: .5rem; padding-bottom: .55rem; border-bottom: 1px solid rgb(27 27 24 / .25); }
+.lb-inside dt { font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+.lb-inside dd { margin: 0 0 0 auto; color: var(--ink-soft); text-align: right; }
+.lb-band { position: relative; height: calc(var(--s) * 4); margin-block: clamp(1.4rem, 3vw, 2.2rem); }
+.lb-band::before { content: ""; position: absolute; top: 0; bottom: 0; left: calc(50% - 50vw); right: calc(50% - 50vw); background: var(--stripes); }
+@media (min-width: 900px) {
+  .lb-band::before { right: calc(var(--r0) + 4 * var(--s)); }
+  .lb-band::after {
+    content: ""; position: absolute; right: 0; bottom: 0; width: calc(var(--r0) + 4 * var(--s)); height: 70rem;
+    background:
+      radial-gradient(circle at 0 0, transparent var(--r0), var(--amber) var(--r0) calc(var(--r0) + var(--s)), var(--rust) 0 calc(var(--r0) + 2 * var(--s)), var(--oxblood) 0 calc(var(--r0) + 3 * var(--s)), var(--olive) 0 calc(var(--r0) + 4 * var(--s)), transparent 0) left bottom / 100% calc(var(--r0) + 4 * var(--s)) no-repeat,
+      linear-gradient(to right, transparent var(--r0), var(--amber) var(--r0) calc(var(--r0) + var(--s)), var(--rust) 0 calc(var(--r0) + 2 * var(--s)), var(--oxblood) 0 calc(var(--r0) + 3 * var(--s)), var(--olive) 0) left top / 100% calc(100% - var(--r0) - 4 * var(--s)) no-repeat;
+  }
+}
+.lb-lede { margin: 0; max-width: 38em; font-size: clamp(1.2rem, 2vw, 1.38rem); line-height: 1.5; text-wrap: pretty; }
+.lb-doors { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; margin-top: clamp(1.75rem, 4vw, 2.75rem); }
+@media (min-width: 760px) { .lb-doors { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.door { position: relative; display: flex; flex-direction: column; gap: .55rem; padding: clamp(1.4rem, 3vw, 2.1rem); text-decoration: none; border-radius: 3px; isolation: isolate; overflow: hidden; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease; }
+.door:hover { transform: translateY(-4px); }
+.door-cta { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: .5rem; }
+.door-text { margin: 0; max-width: 30em; }
+
+.door-nov {
+  color: var(--parchment); --focus: var(--gold-hi);
+  background:
+    radial-gradient(ellipse 75% 55% at 50% 0%, rgb(243 220 155 / .3), transparent 70%),
+    repeating-linear-gradient(90deg, rgb(0 0 0 / .26) 0 3px, transparent 3px 24px, rgb(255 255 255 / .05) 24px 27px, transparent 27px 48px),
+    linear-gradient(var(--velvet), var(--velvet-dk));
+  box-shadow: inset 0 0 0 7px var(--velvet-xdk), inset 0 0 0 8px var(--gold), inset 0 0 0 11px var(--velvet-xdk), inset 0 0 0 12px var(--gold-lo), 0 26px 40px -26px rgb(27 27 24 / .75);
+}
+.door-fan { position: relative; height: clamp(12rem, 24vw, 15.5rem); margin: .25rem 0 1rem; }
+.door-fan img { position: absolute; bottom: 0; left: 50%; width: clamp(6.6rem, 12vw, 9.25rem); border-radius: 2px; box-shadow: 0 16px 26px -10px rgb(0 0 0 / .8); transform-origin: 50% 100%; transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+.door-fan img:nth-child(1) { transform: translateX(-128%) rotate(-9deg); }
+.door-fan img:nth-child(2) { transform: translateX(-50%) translateY(-7%); z-index: 2; }
+.door-fan img:nth-child(3) { transform: translateX(28%) rotate(9deg); }
+.door-nov:hover .door-fan img:nth-child(1) { transform: translateX(-145%) rotate(-14deg); }
+.door-nov:hover .door-fan img:nth-child(2) { transform: translateX(-50%) translateY(-11%); }
+.door-nov:hover .door-fan img:nth-child(3) { transform: translateX(45%) rotate(14deg); }
+.door-nov .door-title { font-family: var(--f-fell); font-size: clamp(2.3rem, 4.4vw, 3.1rem); line-height: 1; color: var(--gold-hi); text-shadow: 0 0 22px rgb(214 173 87 / .35); }
+.door-nov .door-text { font-size: 1.15rem; }
+.door-nov .door-cta { margin-top: 1rem; padding: .65rem 1.2rem; font-family: var(--f-fellsc); font-size: 1.08rem; letter-spacing: .06em; color: var(--velvet-xdk); background: linear-gradient(180deg, var(--gold-hi), var(--gold) 55%, var(--gold-lo)); box-shadow: 0 0 0 1px var(--gold-lo), 0 10px 22px -10px rgb(0 0 0 / .7); }
+
+.door-pc {
+  color: var(--plastic); --focus: var(--ph);
+  background: radial-gradient(ellipse 65% 50% at 50% 12%, rgb(255 180 61 / .17), transparent 70%), repeating-linear-gradient(90deg, rgb(255 255 255 / .018) 0 1px, transparent 1px 64px), linear-gradient(#1f1a12, var(--room));
+  box-shadow: inset 0 0 0 1px rgb(216 206 180 / .22), 0 26px 40px -26px rgb(27 27 24 / .75);
+}
+.mini-pc { align-self: center; width: min(100%, 21.5rem); margin: .25rem 0 1rem; }
+.mini-bezel { display: block; padding: .75rem .75rem 1.5rem; border-radius: 14px; background: linear-gradient(160deg, var(--plastic-hi), var(--plastic) 45%, var(--plastic-lo)); box-shadow: inset 0 2px 0 rgb(255 255 255 / .6), inset 0 -4px 8px rgb(60 50 30 / .3); position: relative; }
+.mini-bezel::after { content: ""; position: absolute; right: .9rem; bottom: .55rem; width: 6px; height: 6px; border-radius: 50%; background: var(--ph); box-shadow: 0 0 6px var(--ph-glow); }
+.mini-screen { position: relative; display: block; overflow: hidden; padding: .7rem .85rem; border-radius: 9px / 12px; background: radial-gradient(ellipse 80% 70% at 50% 45%, var(--glass-hi), var(--glass) 80%); box-shadow: inset 0 0 26px rgb(0 0 0 / .9); font-family: var(--f-crt); font-size: clamp(.98rem, 1.7vw, 1.12rem); line-height: 1.08; color: var(--ph); text-shadow: 0 0 5px var(--ph-glow); white-space: pre; }
+.mini-screen::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(to bottom, rgb(0 0 0 / .28) 0 1px, transparent 1px 3px); }
+.mini-stand { display: block; width: 30%; height: .8rem; margin: 0 auto; background: linear-gradient(var(--plastic-lo), var(--plastic-dk)); clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%); }
+.cursor { display: inline-block; width: .5em; height: .95em; vertical-align: -.12em; background: currentColor; animation: blink 1.05s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.door-pc .door-title { font-family: var(--f-crt); font-size: clamp(2.6rem, 5vw, 3.4rem); line-height: .95; color: var(--ph); text-shadow: 0 0 10px var(--ph-glow); text-transform: uppercase; }
+.door-pc .door-text { font-family: var(--f-mono); font-size: .93rem; line-height: 1.6; }
+.door-pc .door-cta { margin-top: 1rem; padding: .3rem .8rem; font-family: var(--f-crt); font-size: 1.45rem; line-height: 1.1; background: var(--ph); color: var(--glass); box-shadow: 0 0 18px var(--ph-faint); }
+.door-pc:hover .mini-screen { filter: brightness(1.15); }
+
+/* ───────── theatre ───────── */
+.th {
+  position: relative; overflow: clip; color-scheme: dark; color: var(--parchment); --focus: var(--gold-hi); --drape: 0px;
+  background:
+    radial-gradient(ellipse 60% 30% at 50% 0%, rgb(214 173 87 / .16), transparent 70%),
+    radial-gradient(ellipse 90% 50% at 50% 100%, rgb(125 26 42 / .28), transparent 70%),
+    linear-gradient(var(--night), var(--plum) 45%, var(--night));
+}
+@media (min-width: 760px) { .th { --drape: clamp(26px, 5vw, 92px); } }
+.th::before, .th::after { content: ""; position: absolute; top: 0; bottom: 0; width: var(--drape); z-index: 3; pointer-events: none; background: linear-gradient(to bottom, rgb(0 0 0 / .35), transparent 12%), linear-gradient(90deg, var(--velvet-xdk), var(--velvet) 20%, var(--velvet-hi) 36%, var(--velvet) 52%, var(--velvet-dk) 68%, var(--velvet) 84%, var(--velvet-xdk)); }
+.th::before { left: 0; box-shadow: 8px 0 24px rgb(0 0 0 / .5); }
+.th::after { right: 0; box-shadow: -8px 0 24px rgb(0 0 0 / .5); }
+.th .wrap { max-width: 1240px; padding-left: max(var(--gutter-l), calc(var(--drape) + 1.5rem)); padding-right: max(var(--gutter-r), calc(var(--drape) + 1.5rem)); position: relative; z-index: 1; }
+.valance { position: relative; z-index: 4; height: 4.1rem; background: radial-gradient(circle at 50% 0, var(--velvet) 0 27px, var(--gold) 28px 30px, transparent 31px) 0 13px / 62px 44px repeat-x, linear-gradient(var(--velvet-xdk), var(--velvet)) top / 100% 15px no-repeat; filter: drop-shadow(0 8px 10px rgb(0 0 0 / .45)); }
+.dust-wrap { position: sticky; top: 0; height: 100vh; margin-bottom: -100vh; pointer-events: none; z-index: 0; }
+.dust-wrap canvas { width: 100%; height: 100%; display: block; }
+.th-head { text-align: center; padding-block: clamp(1.75rem, 5vw, 3.25rem) clamp(1.5rem, 4vw, 3rem); }
+.th-kicker { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 0; font-family: var(--f-fellsc); font-size: 1rem; letter-spacing: .32em; color: var(--gold); }
+.th-kicker::before, .th-kicker::after { content: ""; width: clamp(2rem, 8vw, 5rem); height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+.th-kicker::after { transform: scaleX(-1); }
+.th-title { margin: .35rem 0 .5rem; font-family: var(--f-fell); font-weight: 400; font-size: clamp(3.4rem, 10vw, 7rem); line-height: .95; color: var(--gold-hi); text-shadow: 0 0 34px rgb(214 173 87 / .38), 0 3px 0 var(--velvet-xdk); }
+.th-title:focus { outline: none; }
+.th-sub { margin: 0 auto; max-width: 32em; font-style: italic; font-size: clamp(1.2rem, 2.2vw, 1.45rem); color: var(--lilac); text-wrap: balance; }
+.flourish { display: block; width: min(15rem, 70%); height: auto; margin: 1.25rem auto 0; color: var(--gold); }
+
+.act { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.25rem; padding-block: clamp(2.75rem, 6vw, 5rem); border-top: 1px solid rgb(214 173 87 / .22); }
+@media (min-width: 880px) { .act { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2.5rem, 5vw, 5rem); align-items: start; } .act-rev { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); } .act-rev .act-cover { order: 2; } }
+.act-cover { position: relative; display: grid; justify-items: center; gap: 1rem; }
+@media (min-width: 880px) { .act > .act-cover { position: sticky; top: 5.5rem; } }
+.act-cover::before { content: ""; position: absolute; left: -25%; right: -25%; top: -12%; height: 115%; background: radial-gradient(ellipse 50% 46% at 50% 42%, rgb(243 220 155 / .17), transparent 72%); pointer-events: none; z-index: -1; }
+.frame { position: relative; width: min(100%, 22.5rem); padding: 12px; background: linear-gradient(135deg, var(--gold-hi), var(--gold-lo) 20%, var(--gold) 42%, var(--gold-hi) 52%, var(--gold-lo) 76%, var(--gold)); box-shadow: 0 0 0 1px var(--gold-lo), 0 44px 70px -30px rgb(0 0 0 / .95); perspective: 1800px; }
+.frame-mat { padding: 6px; background: var(--velvet-xdk); box-shadow: inset 0 0 0 1px var(--gold-lo); }
+.flip { position: relative; transform-style: preserve-3d; transition: transform .95s cubic-bezier(.2,.75,.2,1); }
+.flip.is-flipped { transform: rotateY(180deg); }
+.flip img { width: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+.flip .back { position: absolute; inset: 0; height: 100%; object-fit: cover; transform: rotateY(180deg); }
+.turn { background: none; border: 0; padding: .2rem 0; border-bottom: 1px solid rgb(214 173 87 / .6); color: var(--gold); font-family: var(--f-fellsc); font-size: 1.02rem; letter-spacing: .07em; cursor: pointer; }
+.turn:hover { color: var(--gold-hi); }
+.seal { position: absolute; right: .5rem; bottom: 10%; width: 6.4rem; height: 6.4rem; display: grid; place-content: center; text-align: center; border-radius: 50%; transform: rotate(-13deg); background: radial-gradient(circle at 34% 30%, var(--velvet-hi), var(--velvet) 52%, var(--velvet-xdk)); color: var(--gold-hi); font-family: var(--f-fellsc); font-size: .9rem; line-height: 1.05; letter-spacing: .08em; box-shadow: 0 8px 16px rgb(0 0 0 / .55), inset 0 0 0 5px rgb(0 0 0 / .16), inset 0 0 0 7px rgb(243 220 155 / .3); }
+
+@media (min-width: 600px) { .seal { right: -1.1rem; bottom: 12%; } }
+.act-no { display: flex; align-items: center; gap: .9rem; margin: 0; font-family: var(--f-fellsc); font-size: 1.02rem; letter-spacing: .2em; color: var(--gold); }
+.act-no i { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold), rgb(214 173 87 / .1)); }
+.act-title { margin: .55rem 0 .25rem; font-family: var(--f-fell); font-weight: 400; font-size: clamp(2.5rem, 5.2vw, 3.9rem); line-height: 1.02; color: var(--parchment); text-wrap: balance; }
+.act-title small { display: block; font-size: .55em; font-style: italic; color: var(--gold-hi); margin-top: .2rem; }
+.act-genre { margin: 0 0 1.6rem; font-style: italic; font-size: 1.22rem; color: var(--lilac); }
+.pull { margin: 0 0 1.8rem; padding-left: 1.25rem; border-left: 2px solid var(--gold); }
+.pull p { margin: 0; font-family: var(--f-fell); font-style: italic; font-size: clamp(1.32rem, 2.4vw, 1.62rem); line-height: 1.34; color: var(--gold-hi); text-wrap: pretty; }
+.pull footer { margin-top: .55rem; font-family: var(--f-fellsc); font-size: .92rem; letter-spacing: .1em; color: var(--lilac); }
+.label-sc { margin: 0 0 .45rem; font-family: var(--f-fellsc); font-size: .95rem; letter-spacing: .14em; color: var(--gold); }
+.blurb p { margin: 0 0 .85rem; max-width: 37em; font-size: 1.2rem; line-height: 1.55; text-wrap: pretty; }
+.bill { margin: 1.6rem 0 1.8rem; display: grid; gap: .5rem; max-width: 36rem; }
+.bill div { display: flex; align-items: baseline; gap: .6rem; }
+.bill dt { flex: 1 0 auto; display: flex; align-items: baseline; gap: .6rem; font-family: var(--f-fellsc); font-size: 1.02rem; letter-spacing: .05em; color: var(--gold); }
+.bill dt::after { content: ""; flex: 1; min-width: 1.5rem; border-bottom: 1px dotted rgb(214 173 87 / .55); }
+.bill dd { margin: 0; max-width: 64%; text-align: right; font-size: 1.12rem; }
+.act-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; }
+.btn-gold, .btn-line { display: inline-flex; align-items: center; gap: .5rem; padding: .72rem 1.3rem; border-radius: 2px; font-family: var(--f-fellsc); font-size: 1.12rem; letter-spacing: .06em; line-height: 1.1; text-decoration: none; cursor: pointer; transition: filter .2s ease, transform .2s ease, background-color .2s ease; }
+.btn-gold { border: 0; color: var(--velvet-xdk); background: linear-gradient(180deg, var(--gold-hi), var(--gold) 55%, var(--gold-lo)); box-shadow: 0 0 0 1px var(--gold-lo), 0 12px 26px -12px rgb(214 173 87 / .65); }
+.btn-gold:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.btn-line { border: 1px solid rgb(214 173 87 / .7); color: var(--gold-hi); background: transparent; }
+.btn-line:hover { background: rgb(214 173 87 / .12); }
+.resume { margin: .9rem 0 0; font-size: 1.05rem; color: var(--lilac); }
+.link-btn { background: none; border: 0; padding: 0; color: var(--gold-hi); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.toc { margin-top: 1.6rem; border-top: 1px solid rgb(214 173 87 / .3); max-width: 36rem; }
+.toc summary { display: flex; justify-content: space-between; align-items: center; padding: .8rem 0; cursor: pointer; list-style: none; font-family: var(--f-fellsc); font-size: 1.02rem; letter-spacing: .13em; color: var(--gold); }
+.toc summary::-webkit-details-marker { display: none; }
+.toc summary::after { content: "+"; font-family: var(--f-book); font-size: 1.4rem; line-height: 1; }
+.toc[open] summary::after { content: "\2212"; }
+.toc ol { list-style: none; margin: 0; padding: 0 0 .6rem; }
+.toc-part { padding: .7rem 0 .15rem; font-family: var(--f-fellsc); font-size: .9rem; letter-spacing: .16em; color: var(--lilac); }
+.toc button { width: 100%; display: grid; grid-template-columns: 2.6rem minmax(0, 1fr) auto; gap: .5rem; align-items: baseline; padding: .45rem 0; background: none; border: 0; border-bottom: 1px dotted rgb(214 173 87 / .22); text-align: left; cursor: pointer; font-size: 1.12rem; color: var(--parchment); }
+.toc-num { font-family: var(--f-fell); color: var(--gold); }
+.toc-pg { font-size: .92rem; color: var(--lilac); font-variant-numeric: tabular-nums; }
+.toc button:hover .toc-name { color: var(--gold-hi); text-decoration: underline; text-underline-offset: 3px; }
+.lotus-note { margin: 0 0 1.4rem; max-width: 34em; font-size: 1.22rem; }
+.interval { text-align: center; padding-block: clamp(2.5rem, 6vw, 4rem) clamp(3rem, 7vw, 5rem); border-top: 1px solid rgb(214 173 87 / .22); }
+.interval p { margin: 0 0 1.1rem; font-size: 1.22rem; color: var(--lilac); font-style: italic; }
+.interval .th-kicker { font-style: normal; font-size: 1rem; color: var(--gold); margin-bottom: .8rem; }
+
+/* ───────── computer room ───────── */
+.rm { position: relative; overflow: clip; color-scheme: dark; color: var(--plastic); font-family: var(--f-mono); --focus: var(--ph); padding-block: clamp(3rem, 7vw, 5.5rem) clamp(3.5rem, 8vw, 6rem); background: radial-gradient(ellipse 55% 28% at 50% 0%, rgb(255 180 61 / .1), transparent 70%), repeating-linear-gradient(90deg, rgb(255 255 255 / .016) 0 1px, transparent 1px 88px), linear-gradient(var(--room), var(--room-2)); }
+.rm-head { display: grid; gap: .4rem; max-width: 48rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.rm-kicker { margin: 0; font-family: var(--f-crt); font-size: 1.45rem; color: var(--ph-dim); }
+.rm-title { margin: 0; font-family: var(--f-crt); font-weight: 400; font-size: clamp(3.6rem, 10.5vw, 6.8rem); line-height: .86; text-transform: uppercase; color: var(--ph); text-shadow: 0 0 12px var(--ph-glow), 0 0 44px var(--ph-faint); }
+.rm-title:focus { outline: none; }
+.rm-sub { margin: .6rem 0 0; max-width: 42rem; font-size: .95rem; line-height: 1.65; }
+.pc { max-width: 1120px; margin-inline: auto; }
+.bezel { padding: clamp(10px, 2.6vw, 32px) clamp(10px, 2.6vw, 32px) 0; border-radius: clamp(14px, 2vw, 28px); background: linear-gradient(165deg, var(--plastic-hi), var(--plastic) 38%, var(--plastic-lo)); box-shadow: inset 0 2px 0 rgb(255 255 255 / .7), inset 0 -6px 12px rgb(60 50 30 / .35), 0 50px 90px -40px rgb(0 0 0 / .95); }
+.bezel-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .75rem .35rem .85rem; font-size: .68rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--plastic-ink); }
+.badge { padding: .12rem .5rem; border: 1px solid rgb(79 71 54 / .45); border-radius: 3px; background: linear-gradient(var(--plastic-lo), var(--plastic)); }
+.vents { flex: 1; max-width: 14rem; height: 10px; border-radius: 2px; background: repeating-linear-gradient(90deg, rgb(60 50 30 / .45) 0 3px, transparent 3px 7px); }
+.power { display: flex; align-items: center; gap: .45rem; }
+.led { width: 8px; height: 8px; border-radius: 50%; background: var(--ph); box-shadow: 0 0 8px var(--ph-glow); }
+.pc-neck { width: 30%; height: 20px; margin: 0 auto; background: linear-gradient(var(--plastic-lo), var(--plastic-dk)); clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%); }
+.pc-foot { width: 44%; height: 12px; margin: 0 auto; border-radius: 0 0 9px 9px; background: linear-gradient(var(--plastic), var(--plastic-lo)); box-shadow: 0 18px 30px -10px rgb(0 0 0 / .8); }
+
+.scr { position: relative; overflow: hidden; border-radius: clamp(10px, 1.6vw, 22px) / clamp(12px, 2vw, 28px); background: radial-gradient(ellipse 85% 75% at 50% 45%, var(--glass-hi), var(--glass) 80%); color: var(--ph); text-shadow: 0 0 5px var(--ph-glow); box-shadow: inset 0 0 0 3px var(--room-2), inset 0 0 70px rgb(0 0 0 / .85), 0 0 0 2px var(--plastic-lo); font-size: .95rem; line-height: 1.6; }
+.scr::before { content: ""; position: absolute; inset: 0; z-index: 5; pointer-events: none; background: repeating-linear-gradient(to bottom, rgb(0 0 0 / .24) 0 1px, transparent 1px 3px); }
+.scr::after { content: ""; position: absolute; inset: 0; z-index: 6; pointer-events: none; background: radial-gradient(ellipse 55% 35% at 24% 6%, rgb(255 255 255 / .07), transparent 70%), radial-gradient(ellipse 100% 100% at 50% 50%, transparent 62%, rgb(0 0 0 / .5)); animation: flicker 7s infinite; }
+@keyframes flicker { 0%, 100% { opacity: 1; } 46% { opacity: 1; } 47% { opacity: .82; } 48% { opacity: 1; } 81% { opacity: .9; } 82% { opacity: 1; } }
+.scr-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .2rem clamp(.8rem, 2vw, 1.4rem); background: var(--ph); color: var(--glass); text-shadow: none; font-family: var(--f-crt); font-size: 1.3rem; line-height: 1.25; }
+.scr-keys { flex: 1; text-align: center; }
+@media (max-width: 700px) { .scr-keys { display: none; } }
+.ph-btn { border: 0; padding: 0 .5rem; background: var(--glass); color: var(--ph); font-family: var(--f-crt); font-size: 1.15rem; line-height: 1.3; cursor: pointer; }
+.ph-btn:focus-visible { outline-color: var(--glass); outline-offset: 1px; }
+.scr-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: clamp(1rem, 2.4vw, 1.6rem); }
+@media (min-width: 900px) { .scr-body { grid-template-columns: minmax(0, 19.5rem) minmax(0, 1fr); min-height: 31rem; } }
+.dir { font-family: var(--f-crt); font-size: 1.32rem; line-height: 1.22; }
+.dir p { margin: 0; }
+.dir-vol { margin-bottom: .7rem !important; }
+.dir-list { list-style: none; margin: 0 0 .25rem; padding: 0; }
+.dir-grp { margin: .45rem 0 .05rem !important; padding-left: .4rem; color: var(--ph-dim); }
+.dir-row { display: grid; grid-template-columns: 1.9rem 6.2rem 3.6rem minmax(0, 1fr); gap: .35rem; padding: .04rem .4rem; color: var(--ph); text-decoration: none; }
+.dir-row:hover { background: var(--ph-faint); }
+.dir-row[aria-current="true"] { background: var(--ph); color: var(--glass); text-shadow: none; }
+.dir-row:focus-visible { outline-offset: 0; outline-width: 2px; }
+.dir-sum { color: var(--ph-dim); margin-bottom: 1.1rem !important; padding-left: .4rem; }
+.dir-hint { margin-top: .4rem !important; font-size: 1.12rem; color: var(--ph-dim); }
+.proj { position: relative; padding: clamp(1.1rem, 2.2vw, 1.6rem); border: 3px double var(--ph); }
+.proj + .proj { margin-top: 1.9rem; }
+.js .proj:not(.is-active) { display: none; }
+.js .proj + .proj { margin-top: 0; }
+.proj:focus { outline: none; }
+.proj:focus-visible { outline: 2px dashed var(--ph); outline-offset: 4px; }
+.proj-file { position: absolute; top: -.8em; left: .9rem; margin: 0; padding: 0 .5rem; background: var(--glass); font-family: var(--f-crt); font-size: 1.15rem; line-height: 1.4; }
+.proj-t { margin: .5rem 0 .55rem; font-family: var(--f-crt); font-weight: 400; line-height: .98; }
+.pn { display: block; font-size: clamp(2.3rem, 5vw, 3.3rem); }
+.pn-long { font-size: clamp(1.75rem, 3.6vw, 2.45rem); line-height: 1.02; }
+.ps { display: block; margin-top: .2rem; font-size: clamp(1.35rem, 2.6vw, 1.75rem); color: var(--ph-dim); }
+.proj-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1rem; margin: 0 0 1.1rem; font-family: var(--f-crt); font-size: 1.3rem; line-height: 1.2; }
+.proj-desc { margin: 0 0 1.3rem; max-width: 62ch; font-size: .98rem; line-height: 1.7; }
+.tag-note { padding: 0 .4rem; border: 1px solid var(--ph); }
+.proj-h { margin: 0 0 .5rem; font-family: var(--f-crt); font-weight: 400; font-size: 1.25rem; color: var(--ph-dim); }
+.proj-list { list-style: none; margin: 0 0 1.3rem; padding: 0; display: grid; gap: .5rem; max-width: 64ch; font-size: .93rem; line-height: 1.62; }
+.proj-list li { display: grid; grid-template-columns: 1.25rem minmax(0, 1fr); }
+.proj-list li::before { content: ">"; font-family: var(--f-crt); font-size: 1.2rem; line-height: 1.3; color: var(--ph-dim); }
+.proj-note { margin: 0 0 1.3rem; max-width: 64ch; padding-left: 1rem; border-left: 2px solid var(--ph-dim); font-size: .88rem; line-height: 1.65; }
+.proj-stack { margin: 0 0 1.3rem; display: grid; gap: .45rem; font-size: .9rem; line-height: 1.55; }
+.proj-stack div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: .75rem; }
+.proj-stack dt { font-family: var(--f-crt); font-size: 1.22rem; line-height: 1.25; color: var(--ph-dim); }
+.proj-stack dd { margin: 0; }
+@media (max-width: 480px) { .proj-stack div { grid-template-columns: minmax(0, 1fr); gap: 0; } }
+.gh { margin-top: clamp(3.25rem, 7vw, 5rem); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding: clamp(1.1rem, 3vw, 1.75rem); border: 3px double var(--ph); }
+.gh-line { margin: 0; font-family: var(--f-crt); font-size: 1.3rem; color: var(--ph-dim); }
+.gh-text { margin: .1rem 0 0; font-family: var(--f-crt); font-size: clamp(1.8rem, 4.5vw, 2.6rem); line-height: 1.05; color: var(--ph); text-shadow: 0 0 10px var(--ph-glow); }
+.gh-btn { text-decoration: none; display: inline-flex; align-items: center; gap: .6rem; }
+.gh-btn svg { flex: none; }
+@media (max-width: 480px) { .gh .gh-btn { font-size: 1.05rem; padding-inline: .7rem; max-width: 100%; overflow-wrap: anywhere; } }
+.ft a { text-underline-offset: 3px; }
+.proj-sk h4 { margin: 0 0 .45rem; font-family: var(--f-crt); font-weight: 400; font-size: 1.25rem; color: var(--ph-dim); }
+.proj-sk ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.proj-sk li { padding: .12rem .6rem; border: 1px solid var(--ph); font-size: .86rem; }
+.proj-files { display: flex; flex-wrap: wrap; gap: .25rem .9rem; margin: 1.3rem 0 0; padding-top: .85rem; border-top: 1px dashed var(--ph-dim); font-size: .86rem; }
+.proj-files b { font-family: var(--f-crt); font-weight: 400; font-size: 1.2rem; line-height: 1.2; }
+.prompt { padding: .75rem clamp(1rem, 2.4vw, 1.6rem) 1rem; border-top: 1px solid var(--ph-dim); font-family: var(--f-crt); font-size: 1.32rem; line-height: 1.22; }
+.prompt-log { max-height: 10.5em; overflow-y: auto; white-space: pre-wrap; overflow-wrap: anywhere; }
+.prompt-log div { min-height: 1.22em; }
+.prompt-line { display: flex; align-items: baseline; gap: .1rem; }
+.prompt-line label { flex: none; }
+.prompt-line input { flex: 1; min-width: 0; padding: 0; border: 0; background: transparent; color: var(--ph); caret-color: var(--ph); font: inherit; text-shadow: inherit; }
+.prompt-line input:focus { outline: none; }
+.prompt-line:focus-within { box-shadow: 0 2px 0 var(--ph-dim); }
+
+.sites { margin-top: clamp(3.25rem, 7vw, 5rem); }
+.sites-title { margin: 0; font-family: var(--f-crt); font-weight: 400; font-size: clamp(2.6rem, 6vw, 3.8rem); line-height: 1; text-transform: uppercase; color: var(--ph); text-shadow: 0 0 10px var(--ph-glow); }
+.sites-sub { margin: .5rem 0 1.75rem; max-width: 40rem; font-size: .95rem; line-height: 1.65; }
+.sites-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+@media (min-width: 820px) { .sites-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.win { background: var(--win); color: var(--win-ink); border: 1px solid var(--win-ink); box-shadow: 7px 7px 0 rgb(0 0 0 / .6); text-shadow: none; --focus: var(--win-ink); display: flex; flex-direction: column; }
+.win-bar { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .5rem; padding: .35rem .5rem; border-bottom: 1px solid var(--win-ink); background: repeating-linear-gradient(to bottom, var(--win-ink) 0 1px, var(--win) 1px 3px) center / 100% 11px no-repeat, var(--win); }
+.win-name { justify-self: center; padding: 0 .6rem; background: var(--win); font-family: var(--f-crt); font-size: 1.25rem; line-height: 1; }
+.win-box { width: 13px; height: 13px; border: 1px solid var(--win-ink); background: var(--win); box-shadow: inset 1px 1px 0 var(--win-hi); }
+.win-view { aspect-ratio: 960 / 645; overflow: hidden; border-bottom: 1px solid var(--win-ink); background: var(--win-hi); }
+.win-view img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.win-body { flex: 1; display: flex; flex-direction: column; gap: .55rem; padding: 1.1rem 1.2rem 1.35rem; }
+.win-role { margin: 0; font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--win-soft); }
+.win h4 { margin: 0; font-family: var(--f-crt); font-weight: 400; font-size: 2.2rem; line-height: 1; }
+.win p { margin: 0; font-size: .92rem; line-height: 1.62; }
+.win-btn { margin-top: auto; align-self: flex-start; padding: .45rem 1rem; border: 2px solid var(--win-ink); border-radius: 7px; box-shadow: 0 0 0 2px var(--win), 0 0 0 3px var(--win-ink); background: var(--win-hi); font-size: .88rem; font-weight: 600; text-decoration: none; }
+.win-btn:hover { background: var(--win-ink); color: var(--win-hi); }
+.win-body p:last-of-type { margin-bottom: .9rem; }
+
+.works { margin-top: clamp(3.5rem, 7vw, 5.5rem); }
+.work { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.25rem; }
+@media (min-width: 980px) { .work { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 3rem; align-items: start; } }
+.work-kicker { margin: 0; font-family: var(--f-crt); font-size: 1.3rem; color: var(--ph-dim); }
+.work-title { margin: .25rem 0 .35rem; font-family: var(--f-crt); font-weight: 400; font-size: clamp(3rem, 7vw, 4.4rem); line-height: .9; color: var(--ph); text-shadow: 0 0 10px var(--ph-glow); }
+.work-sub { margin: 0 0 1.3rem; font-family: var(--f-crt); font-size: 1.38rem; line-height: 1.2; color: var(--ph-dim); }
+.work-desc { margin: 0 0 1.3rem; max-width: 60ch; font-size: .95rem; line-height: 1.7; }
+.work-facts { margin: 0 0 1.4rem; display: grid; gap: .3rem; font-family: var(--f-crt); font-size: 1.28rem; line-height: 1.2; color: var(--ph); }
+.work-facts div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: .75rem; }
+.work-facts dt { color: var(--ph-dim); }
+.work-facts dd { margin: 0; }
+.work-note { margin: 0 0 1.5rem; max-width: 60ch; padding-left: 1rem; border-left: 2px solid var(--ph-dim); font-size: .92rem; line-height: 1.7; }
+.work-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.3rem; }
+.work-btn { border: 0; padding: .35rem .95rem; background: var(--ph); color: var(--glass); font-family: var(--f-crt); font-size: 1.42rem; line-height: 1.1; cursor: pointer; box-shadow: 0 0 18px var(--ph-faint); }
+.work-btn:hover { filter: brightness(1.1); }
+.work-link { font-size: .9rem; color: var(--ph); text-underline-offset: 3px; }
+.printer { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 5rem; padding: 0 1.25rem 1.35rem; border-radius: 12px 12px 8px 8px; background: linear-gradient(170deg, var(--plastic-hi), var(--plastic) 45%, var(--plastic-lo)); box-shadow: inset 0 2px 0 rgb(255 255 255 / .6), inset 0 -5px 10px rgb(60 50 30 / .3), 0 24px 40px -24px rgb(0 0 0 / .9); font-family: var(--f-mono); font-size: .66rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--plastic-ink); }
+.pr-slot { position: absolute; left: 5%; right: 5%; bottom: .7rem; height: .55rem; border-radius: 4px; background: var(--room-2); box-shadow: inset 0 2px 3px rgb(0 0 0 / .8); }
+.pr-badge { padding: .12rem .5rem; border: 1px solid rgb(79 71 54 / .45); border-radius: 3px; background: linear-gradient(var(--plastic-lo), var(--plastic)); }
+.pr-lights { display: inline-flex; align-items: center; gap: .45rem; }
+.pr-lights i { width: 7px; height: 7px; border-radius: 50%; background: var(--ph); box-shadow: 0 0 7px var(--ph-glow); }
+.paper { position: relative; z-index: 1; margin: -1.05rem 6% 0; padding: 1.25rem 1.7rem 1.5rem; color: var(--gb-ink); background-color: var(--gb-paper); background-image: radial-gradient(circle, var(--room) 0 .3rem, transparent calc(.3rem + .6px)), radial-gradient(circle, var(--room) 0 .3rem, transparent calc(.3rem + .6px)); background-size: 1.7rem 1.1rem, 1.7rem 1.1rem; background-position: left .3rem, right .3rem; background-repeat: repeat-y; box-shadow: 0 20px 34px -18px rgb(0 0 0 / .85); text-shadow: none; }
+.paper-body { position: relative; max-height: 31rem; overflow: hidden; padding: 1.6rem clamp(.75rem, 3vw, 2rem); border-left: 1px dashed rgb(38 38 42 / .28); border-right: 1px dashed rgb(38 38 42 / .28); background: repeating-linear-gradient(to bottom, var(--gb-bar) 0 4.8rem, transparent 4.8rem 9.6rem) 0 1.6rem; font-family: var(--f-mono); font-size: .86rem; line-height: 1.6rem; -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to bottom, #000 70%, transparent); transition: max-height 1.5s steps(22, end); }
+.paper.is-open .paper-body { -webkit-mask-image: none; mask-image: none; }
+.paper-body p { margin: 0 0 1.6rem; text-indent: 2em; }
+.paper-body .po-title, .paper-body .po-sub, .paper-body .po-by, .paper-body .po-foot { margin: 0; text-indent: 0; text-align: center; }
+.paper-body .po-title { font-size: 1.15rem; font-weight: 600; letter-spacing: .22em; }
+.paper-body .po-sub { font-style: italic; }
+.paper-body .po-by { margin-bottom: 1.6rem; }
+.paper-body .po-foot { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid rgb(38 38 42 / .3); font-size: .76rem; }
+
+/* ───────── about ───────── */
+.ab { position: relative; overflow: clip; padding-block: clamp(3.75rem, 8vw, 6rem); background: var(--paper); }
+.ab::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: calc(var(--s) * 4); background: var(--stripes); z-index: 1; }
+.ab > .wrap { position: relative; z-index: 1; }
+.ab-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(2.5rem, 5vw, 4rem); }
+@media (min-width: 960px) { .ab-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); } }
+.ab-kicker { margin: 0; font-family: var(--f-mono); font-size: .78rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+.ab-title { margin: .5rem 0 1.3rem; font-family: var(--f-retro); font-weight: 600; font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144; font-size: clamp(2.7rem, 6.4vw, 4.4rem); line-height: .95; letter-spacing: -.04em; color: var(--black); }
+.ab-title:focus { outline: none; }
+.ab-copy p { margin: 0 0 1rem; max-width: 36em; font-size: 1.22rem; text-wrap: pretty; }
+.ab-copy .li-btn { display: inline-flex; margin-top: .4rem; padding: .6rem 1.1rem; background: var(--ink); color: var(--paper); text-decoration: none; font-family: var(--f-mono); font-size: .85rem; font-weight: 500; letter-spacing: .04em; }
+.ab-copy .li-btn:hover { background: var(--oxblood); }
+.card { position: relative; max-width: 33rem; margin-top: 2rem; padding: 1.2rem 1.5rem 2.8rem; border-radius: 3px; background-color: var(--card); background-image: linear-gradient(var(--rust), var(--rust)), repeating-linear-gradient(to bottom, transparent 0 1.6rem, rgb(32 39 51 / .15) 1.6rem calc(1.6rem + 1px)); background-size: 100% 2px, 100% 100%; background-position: 0 2.62rem, 0 1rem; background-repeat: no-repeat, repeat; font-family: var(--f-mono); font-size: .86rem; line-height: 1.6rem; transform: rotate(-1.1deg); box-shadow: 0 1px 0 rgb(0 0 0 / .08), 0 20px 32px -20px rgb(27 27 24 / .55); }
+.card::after { content: ""; position: absolute; left: 50%; bottom: .95rem; width: .95rem; height: .95rem; margin-left: -.475rem; border-radius: 50%; background: var(--paper); box-shadow: inset 0 1px 3px rgb(0 0 0 / .35); }
+.card p { margin: 0; }
+.card-head { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 1.6rem; font-weight: 600; }
+.card-head span:last-child { color: var(--ink-soft); font-weight: 400; }
+.card .ind { padding-left: 1.5em; }
+@media (min-width: 600px) { .card .ind { padding-left: 2.5em; } }
+.card-sub { margin-top: 1.6rem !important; color: var(--ink-soft); }
+.tl-wrap h3 { margin: 0 0 .5rem; font-family: var(--f-mono); font-size: .78rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+.legend { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin: 0 0 1.4rem; padding: 0; list-style: none; font-family: var(--f-mono); font-size: .76rem; color: var(--ink-soft); }
+.legend li { display: inline-flex; align-items: center; gap: .45rem; }
+.mk { width: 10px; height: 10px; border: 2px solid var(--ink); background: var(--mk); flex: none; }
+.mk-book { --mk: var(--oxblood); transform: rotate(45deg); }
+.mk-code { --mk: var(--olive); }
+.mk-venture { --mk: var(--amber); border-radius: 50%; }
+.tl { list-style: none; margin: 0; padding: 0 0 0 1.5rem; border-left: 2px solid var(--ink); display: grid; gap: 1.15rem; }
+.tl li { position: relative; display: grid; gap: .08rem; }
+.tl li .mk { position: absolute; left: calc(-1.5rem - 7px); top: .4rem; width: 12px; height: 12px; }
+.tl-when { font-family: var(--f-mono); font-size: .76rem; letter-spacing: .05em; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.tl-what { font-family: var(--f-retro); font-weight: 700; font-variation-settings: "SOFT" 100, "WONK" 0; font-size: 1.2rem; line-height: 1.2; }
+.tl-note { font-size: 1.02rem; color: var(--ink-soft); }
+.ft { background: var(--ink); color: var(--paper); position: relative; padding-block: 2rem calc(2rem + env(safe-area-inset-bottom, 0px)); font-family: var(--f-mono); font-size: .8rem; --focus: var(--amber); }
+.ft-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+.ft p { margin: 0; }
+
+/* ───────── transitions between worlds ───────── */
+.ov { position: fixed; inset: 0; z-index: 100; overflow: hidden; cursor: pointer; }
+.ov-skip { position: absolute; left: 0; right: 0; bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); margin: 0; text-align: center; z-index: 4; }
+.cur { position: absolute; top: 0; bottom: 0; width: 50.5%; background: linear-gradient(to bottom, rgb(0 0 0 / .4), transparent 10%, transparent 88%, rgb(0 0 0 / .45)), repeating-linear-gradient(90deg, var(--velvet-xdk) 0, var(--velvet) 3.5%, var(--velvet-hi) 6%, var(--velvet) 8.5%, var(--velvet-dk) 12%); }
+.cur-l { left: 0; border-right: 3px solid var(--gold-lo); transform: translateX(-101%); }
+.cur-r { right: 0; border-left: 3px solid var(--gold-lo); transform: translateX(101%); }
+.ov-curtain .valance { position: absolute; top: 0; left: 0; right: 0; z-index: 3; }
+.cur-title { position: absolute; inset: 0; z-index: 2; display: grid; place-content: center; gap: .6rem; padding: 1rem; text-align: center; opacity: 0; pointer-events: none; }
+.cur-title span { font-family: var(--f-fellsc); font-size: clamp(.95rem, 2vw, 1.2rem); letter-spacing: .32em; color: var(--gold); }
+.cur-title strong { font-family: var(--f-fell); font-weight: 400; font-size: clamp(3.4rem, 11vw, 7.5rem); line-height: .95; color: var(--gold-hi); text-shadow: 0 0 40px rgb(0 0 0 / .7), 0 0 22px rgb(214 173 87 / .45); }
+.ov-curtain .ov-skip { font-family: var(--f-fellsc); font-size: .95rem; letter-spacing: .12em; color: var(--gold-hi); text-shadow: 0 1px 3px rgb(0 0 0 / .8); }
+.ov-crt { background: var(--glass); display: grid; place-items: center; }
+.crt-tube { position: relative; overflow: hidden; width: min(92vw, 56rem); height: min(72vh, 34rem); padding: clamp(1.2rem, 4vw, 2.6rem); border-radius: 28px / 36px; background: radial-gradient(ellipse 80% 70% at 50% 45%, var(--glass-hi), var(--glass) 80%); box-shadow: inset 0 0 90px rgb(0 0 0 / .9); transform: scale(0, .004); }
+.crt-tube::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(to bottom, rgb(0 0 0 / .3) 0 1px, transparent 1px 3px); pointer-events: none; }
+.crt-text { margin: 0; font-family: var(--f-crt); font-size: clamp(1.3rem, 3.3vw, 2.05rem); line-height: 1.25; color: var(--ph); text-shadow: 0 0 9px var(--ph-glow); white-space: pre-wrap; overflow-wrap: anywhere; }
+.crt-text::after { content: ""; display: inline-block; width: .5em; height: .95em; vertical-align: -.12em; background: var(--ph); animation: blink 1s steps(1) infinite; }
+.ov-crt .ov-skip { font-family: var(--f-crt); font-size: 1.2rem; color: var(--ph-dim); }
+
+/* ───────── book reader ───────── */
+.rd { width: 100%; height: 100%; max-width: 100%; max-height: 100%; margin: 0; padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px); border: 0; overflow: hidden; color-scheme: dark; color: var(--parchment); font-family: var(--f-book); --focus: var(--gold-hi); background: radial-gradient(ellipse 70% 60% at 50% 45%, var(--plum), var(--night) 80%); }
+.rd[open] { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto; }
+.rd::backdrop { background: var(--night); }
+.rd-top, .rd-bottom { display: flex; align-items: center; gap: .75rem; padding: .6rem max(16px, 1.1rem); }
+.rd-top { border-bottom: 1px solid rgb(214 173 87 / .25); }
+.rd-bottom { border-top: 1px solid rgb(214 173 87 / .25); padding-bottom: .85rem; }
+.rd-x { flex: none; display: grid; place-items: center; width: 2.6rem; height: 2.6rem; padding: 0; border: 1px solid rgb(214 173 87 / .55); border-radius: 50%; background: transparent; color: var(--gold-hi); cursor: pointer; }
+.rd-x:hover { background: rgb(214 173 87 / .14); }
+.rd-title { flex: 1; min-width: 0; margin: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: var(--f-fell); font-weight: 400; font-size: clamp(1.15rem, 2.4vw, 1.55rem); color: var(--gold-hi); }
+.rd-sel { min-width: 0; max-width: 16rem; padding: .45rem .55rem; border: 1px solid rgb(214 173 87 / .55); border-radius: 3px; background: var(--velvet-xdk); color: var(--parchment); font-size: .98rem; }
+.rd-tool { flex: none; display: inline-flex; align-items: center; gap: .4rem; padding: .45rem .75rem; border: 1px solid rgb(214 173 87 / .55); border-radius: 2rem; background: transparent; color: var(--gold-hi); font-family: var(--f-fellsc); font-size: .98rem; line-height: 1; cursor: pointer; }
+.rd-tool:hover { background: rgb(214 173 87 / .14); }
+.rd-tool[aria-pressed="true"] { background: var(--gold); color: var(--velvet-xdk); border-color: var(--gold); }
+@media (max-width: 760px) { .rd-tool span { display: none; } .rd-tool { padding: .5rem; } }
+.rd-pdf { flex: none; font-family: var(--f-fellsc); font-size: 1rem; color: var(--gold); white-space: nowrap; }
+@media (max-width: 640px) { .rd-pdf { display: none; } .rd-sel { max-width: 9.5rem; } }
+.rd-stage { position: relative; display: grid; place-items: center; min-height: 0; padding: clamp(.75rem, 2.5vw, 1.75rem); overflow: hidden; touch-action: pan-y pinch-zoom; -webkit-user-select: none; user-select: none; }
+.rd-book { position: relative; display: flex; perspective: 2800px; }
+.rd-stage.is-zoom { place-items: start center; overflow: auto; overscroll-behavior: contain; touch-action: pan-x pan-y pinch-zoom; }
+.rd-stage.is-zoom .rd-page { cursor: default; }
+.rd-page { position: relative; flex: none; background: var(--page); box-shadow: 0 32px 60px -26px rgb(0 0 0 / .9); cursor: pointer; }
+.rd-page canvas, .lf canvas { display: block; width: 100%; height: 100%; image-rendering: auto; }
+.rd-page.is-blank { visibility: hidden; }
+.rd-book.is-spread .rd-left::after, .rd-book.is-spread .rd-right::after { content: ""; position: absolute; top: 0; bottom: 0; width: 12%; pointer-events: none; }
+.rd-book.is-spread .rd-left::after { right: 0; background: linear-gradient(to left, rgb(0 0 0 / .2), transparent); }
+.rd-book.is-spread .rd-right::after { left: 0; background: linear-gradient(to right, rgb(0 0 0 / .2), transparent); }
+.rd-leaf { position: absolute; z-index: 4; transform-style: preserve-3d; pointer-events: none; will-change: transform; }
+.lf { position: absolute; inset: 0; overflow: hidden; background: var(--page); -webkit-backface-visibility: hidden; backface-visibility: hidden; box-shadow: 0 0 34px rgb(0 0 0 / .35); }
+.lf-back { transform: rotateY(180deg); }
+.lf-shade { position: absolute; inset: 0; opacity: 0; background: linear-gradient(90deg, rgb(0 0 0 / .4), rgb(0 0 0 / .06)); }
+.rd-status { position: absolute; inset: 0; z-index: 5; display: grid; place-content: center; gap: .7rem; padding: 1rem; text-align: center; font-family: var(--f-fell); font-style: italic; font-size: 1.35rem; color: var(--gold-hi); pointer-events: none; }
+.rd-status:empty { display: none; }
+.rd-status a { pointer-events: auto; color: var(--gold-hi); }
+.rd-nav { flex: none; display: inline-flex; align-items: center; gap: .35rem; padding: .5rem .95rem; border: 1px solid rgb(214 173 87 / .55); border-radius: 2rem; background: transparent; color: var(--gold-hi); font-family: var(--f-fellsc); font-size: 1.02rem; cursor: pointer; }
+.rd-nav:hover { background: rgb(214 173 87 / .14); }
+.rd-nav[aria-disabled="true"] { opacity: .35; cursor: default; background: transparent; }
+.rd-scrub { flex: 1; min-width: 0; display: grid; gap: .15rem; text-align: center; }
+.rd-scrub input { width: 100%; margin: 0; accent-color: var(--gold); }
+.rd-pageno { font-size: .95rem; color: var(--lilac); font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .rd-nav span { display: none; } .rd-nav { padding: .55rem .7rem; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js");</script>
+
+<header class="hdr" id="hdr" data-world="lobby">
+  <div class="wrap hdr-in">
+    <a class="hdr-name" href="#top"><span class="mark" aria-hidden="true"></span><span class="hdr-full" aria-hidden="true">Swayam Shakya</span><span class="sr">Swayam Shakya, back to the top</span></a>
+    <nav aria-label="Sections">
+      <a href="#novels" data-door="novels">Novels</a>
+      <a href="#projects" data-door="projects">Projects</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ═════════════ LOBBY ═════════════ -->
+<section class="lb grain" id="top" data-world="lobby" aria-labelledby="name">
+  <div class="wrap">
+    <div class="lb-hero">
+      <div>
+        <p class="lb-kicker"><span>Writer/Author&nbsp;·</span> <span>CS Student&nbsp;·</span> <span>Founder of TutorBTL&nbsp;·</span> <span>Co-founder of Manaslu CS Club (MCSC)</span></p>
+        <h1 class="lb-name" id="name"><span>Swayam</span> <span>Shakya</span></h1>
+        <p class="lb-cred"><span>Bachelor of Computer Science (Honours), Algoma University, Brampton, Ontario</span><span>Undergraduate AI/ML Researcher and Teaching Assistant at Algoma University</span></p>
+      </div>
+      <dl class="lb-inside" aria-label="On this page">
+        <div><dt>3 novels</dt><dd>2 to read in full</dd></div>
+        <div><dt>13 projects</dt><dd>quantum, AI, systems</dd></div>
+        <div><dt>2 websites</dt><dd>started in 2020</dd></div>
+        <div><dt>1 essay</dt><dd>GYRO-76</dd></div>
+      </dl>
+    </div>
+    <div class="lb-band" aria-hidden="true"></div>
+    <p class="lb-lede">I write mystery and supernatural fiction, and I build software. Choose a door. One opens on a theatre where my novels play as acts, and two of them can be read here cover to cover. The other opens on an old computer that lists my projects, the two websites I started and a notable essay.</p>
+
+    <div class="lb-doors">
+      <a class="door door-nov" href="#novels" data-door="novels">
+        <span class="door-fan" aria-hidden="true">
+          <img src="covers/the-mirage-in-the-mist-front-sm.jpg" alt="" width="360" height="556">
+          <img src="covers/the-hanging-lord-front-sm.jpg" alt="" width="360" height="540">
+          <img src="covers/the-lotus-blade-front-sm.jpg" alt="" width="360" height="566">
+        </span>
+        <span class="door-title">The Novels</span>
+        <span class="door-text">The Mirage in the Mist and The Hanging Lord, complete and free to read. The Lotus Blade and The Empty Hand, still being written.</span>
+        <span class="door-cta">Read the novels <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="door door-pc" href="#projects" data-door="projects">
+        <span class="mini-pc" aria-hidden="true">
+          <span class="mini-bezel"><span class="mini-screen">C:\&gt; DIR \PROJECTS
+
+THESIS     &lt;DIR&gt;   1 item
+QUANTUM    &lt;DIR&gt;   2 items
+AI         &lt;DIR&gt;   5 items
+SYSTEMS    &lt;DIR&gt;   2 items
+APPS       &lt;DIR&gt;   3 items
+       13 Dir(s)
+
+C:\&gt; RUN PROJECTS.EXE<span class="cursor"></span></span></span>
+          <span class="mini-stand"></span>
+        </span>
+        <span class="door-title">The Projects</span>
+        <span class="door-text">Thirteen projects, from quantum error correction and evolutionary quantum circuit search to my thesis app that shows mining truck drivers their load, plus the websites of TutorBTL and the Manaslu Computer Science Club, and GYRO-76, a notable essay.</span>
+        <span class="door-cta">See the projects</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ THE NOVELS: a theatre ═════════════ -->
+<section class="th" id="novels" data-world="novels" aria-labelledby="novels-title">
+  <div class="valance" aria-hidden="true"></div>
+  <div class="dust-wrap" aria-hidden="true"><canvas id="dust"></canvas></div>
+  <div class="wrap">
+    <header class="th-head">
+      <p class="th-kicker">Now showing</p>
+      <h2 class="th-title" id="novels-title" tabindex="-1">The Novels</h2>
+      <p class="th-sub">Two finished novels you can read here from cover to cover, and a third that is still being written.</p>
+      <svg class="flourish" viewBox="0 0 240 24" aria-hidden="true" focusable="false"><path d="M4 12H92M148 12H236" stroke="currentColor" stroke-width="1" fill="none"/><path d="M120 3 129 12 120 21 111 12Z" fill="currentColor"/><path d="M108 12c-3-7-11-7-12-1s6 8 8 3M132 12c3-7 11-7 12-1s-6 8-8 3" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="96" cy="12" r="1.6" fill="currentColor"/><circle cx="144" cy="12" r="1.6" fill="currentColor"/></svg>
+    </header>
+
+    <!-- Act I -->
+    <article class="act" id="the-mirage-in-the-mist" aria-labelledby="mm-title">
+      <div class="act-cover">
+        <div class="frame"><div class="frame-mat">
+          <div class="flip">
+            <img class="front" src="covers/the-mirage-in-the-mist-front.jpg" width="800" height="1236" alt="Front cover of The Mirage in the Mist by Swayam Shakya: the title in red capitals over a dark sea lit red">
+            <img class="back" src="covers/the-mirage-in-the-mist-back.jpg" width="800" height="1236" loading="lazy" alt="Back cover of The Mirage in the Mist, with the description of the novel">
+          </div>
+        </div></div>
+        <button class="turn" type="button" data-turn>Turn the book over</button>
+      </div>
+      <div class="act-text">
+        <p class="act-no"><span>Act I</span><i></i><span>2023</span></p>
+        <h3 class="act-title" id="mm-title">The Mirage in the Mist</h3>
+        <p class="act-genre">Mystery, thriller, suspense</p>
+        <blockquote class="pull">
+          <p>“In an enigmatic location where shadows dance on the brink of vision, fluorescent lights flicker like secrets, and mist wraps its mirage around hidden intricacies…”</p>
+          <footer>From the prologue</footer>
+        </blockquote>
+        <p class="label-sc">From the back cover</p>
+        <div class="blurb">
+          <p>The Mirage in the Mist centers around the mental turmoil and psychotic insanity of Jason, a young man in solitude haunted by his forgotten past with the stipulated turn of having no recollection of it, who decides to embark on a search to uncover the mystery and seek the truth behind every bizarre occurrence that he keeps encountering.</p>
+          <p>Along the way, he gets accompanied by a number of individuals, including an elderly doctor who is also a retired surgeon and psychiatrist and now operates a clinic in the downtown area, a young lady around Jason’s age who works as the doctor’s assistant, and many others.</p>
+        </div>
+        <dl class="bill">
+          <div><dt>Written</dt><dd>2023</dd></div>
+          <div><dt>Length</dt><dd>About 30,000 words</dd></div>
+          <div><dt>Structure</dt><dd>A prologue and seven chapters in two parts</dd></div>
+          <div><dt>Setting</dt><dd>A timeless city that exists only in black and white</dd></div>
+        </dl>
+        <div class="act-actions">
+          <button class="btn-gold" type="button" data-read="the-mirage-in-the-mist">Read the novel</button>
+          <a class="btn-line" href="novels/the-mirage-in-the-mist.pdf" target="_blank" rel="noopener">Open the PDF</a>
+        </div>
+        <p class="resume" data-resume="the-mirage-in-the-mist" hidden>You stopped at page <span class="resume-p"></span>. <button class="link-btn" type="button" data-read="the-mirage-in-the-mist" data-page="1">Start again from the cover</button></p>
+        <details class="toc">
+          <summary>Contents</summary>
+          <ol>
+            <li><button type="button" data-read="the-mirage-in-the-mist" data-page="4"><span class="toc-num"></span><span class="toc-name">Prologue</span><span class="toc-pg">p. 4</span></button></li>
+            <li class="toc-part">Part 1</li>
+            <li><button type="button" data-read="the-mirage-in-the-mist" data-page="8"><span class="toc-num">I</span><span class="toc-name">The Symphony of Assimilation</span><span class="toc-pg">p. 8</span></button></li>
+            <li><button type="button" data-read="the-mirage-in-the-mist" data-page="18"><span class="toc-num">II</span><span class="toc-name">The Droplets of Shambles</span><span class="toc-pg">p. 18</span></button></li>
+            <li><button type="button" data-read="the-mirage-in-the-mist" data-page="28"><span class="toc-num">III</span><span class="toc-name">The Albatross of Misery</span><span class="toc-pg">p. 28</span></button></li>
+            <li class="toc-part">Part 2</li>
+            <li><button type="button" data-read="the-mirage-in-the-mist" data-page="42"><span class="toc-num">IV</span><span class="toc-name">The Missing Pieces</span><span class="toc-pg">p. 42</span></button></li>
+            <li><button type="button" data-read="the-mirage-in-the-mist" data-page="65"><span class="toc-num">V</span><span class="toc-name">The Unspoken Veracity</span><span class="toc-pg">p. 65</span></button></li>
+            <li><button type="button" data-read="the-mirage-in-the-mist" data-page="81"><span class="toc-num">VI</span><span class="toc-name">The Ripple Effect</span><span class="toc-pg">p. 81</span></button></li>
+            <li><button type="button" data-read="the-mirage-in-the-mist" data-page="95"><span class="toc-num">VII</span><span class="toc-name">The Malevolent Inception</span><span class="toc-pg">p. 95</span></button></li>
+          </ol>
+        </details>
+      </div>
+    </article>
+
+    <!-- Act II -->
+    <article class="act act-rev" id="the-hanging-lord" aria-labelledby="hl-title">
+      <div class="act-cover">
+        <div class="frame"><div class="frame-mat">
+          <div class="flip">
+            <img class="front" src="covers/the-hanging-lord-front.jpg" width="800" height="1200" alt="Front cover of The Hanging Lord by Swayam Shakya: a red beaded rope ending in a noose, on parchment, under the words A Novel of Dhuwakot">
+            <img class="back" src="covers/the-hanging-lord-back.jpg" width="800" height="1200" loading="lazy" alt="Back cover of The Hanging Lord, with the description of the novel">
+          </div>
+        </div></div>
+        <button class="turn" type="button" data-turn>Turn the book over</button>
+      </div>
+      <div class="act-text">
+        <p class="act-no"><span>Act II</span><i></i><span>2026</span></p>
+        <h3 class="act-title" id="hl-title">The Hanging Lord</h3>
+        <p class="act-genre">A supernatural mystery thriller</p>
+        <blockquote class="pull">
+          <p>“Do not look at the one who hangs. What hangs, also watches.”</p>
+          <footer>Saying of Dhuwakot</footer>
+        </blockquote>
+        <p class="label-sc">From the back cover</p>
+        <div class="blurb">
+          <p>In Dhuwakot, the doors are barred before sunset, and nobody looks at the rope that moves without wind.</p>
+          <p>Eleven policemen went up the hill. None came back.</p>
+          <p>Now a Superintendent and his wife arrive in disguise, carrying a lamp, a red thread, and one rule: do not look.</p>
+          <p>But something beneath the hill has waited two hundred years for someone who will.</p>
+          <p>Some knots should never be untied.</p>
+        </div>
+        <dl class="bill">
+          <div><dt>Written</dt><dd>2026</dd></div>
+          <div><dt>Length</dt><dd>About 81,000 words</dd></div>
+          <div><dt>Structure</dt><dd>Five chapters</dd></div>
+          <div><dt>Setting</dt><dd>Dhuwakot, a hill village in Nepal, in 2049 B.S.</dd></div>
+        </dl>
+        <div class="act-actions">
+          <button class="btn-gold" type="button" data-read="the-hanging-lord">Read the novel</button>
+          <a class="btn-line" href="novels/the-hanging-lord.pdf" target="_blank" rel="noopener">Open the PDF</a>
+        </div>
+        <p class="resume" data-resume="the-hanging-lord" hidden>You stopped at page <span class="resume-p"></span>. <button class="link-btn" type="button" data-read="the-hanging-lord" data-page="1">Start again from the cover</button></p>
+        <details class="toc">
+          <summary>Contents</summary>
+          <ol>
+            <li><button type="button" data-read="the-hanging-lord" data-page="7"><span class="toc-num">I</span><span class="toc-name">The Village That Sleeps Before Sunset</span><span class="toc-pg">p. 7</span></button></li>
+            <li><button type="button" data-read="the-hanging-lord" data-page="39"><span class="toc-num">II</span><span class="toc-name">The Hour of the Lamp</span><span class="toc-pg">p. 39</span></button></li>
+            <li><button type="button" data-read="the-hanging-lord" data-page="85"><span class="toc-num">III</span><span class="toc-name">The Throat of the Hill</span><span class="toc-pg">p. 85</span></button></li>
+            <li><button type="button" data-read="the-hanging-lord" data-page="119"><span class="toc-num">IV</span><span class="toc-name">A Rope for a Son</span><span class="toc-pg">p. 119</span></button></li>
+            <li><button type="button" data-read="the-hanging-lord" data-page="167"><span class="toc-num">V</span><span class="toc-name">The Tenth Bundle</span><span class="toc-pg">p. 167</span></button></li>
+          </ol>
+        </details>
+      </div>
+    </article>
+
+    <!-- Act III -->
+    <article class="act" id="the-lotus-blade" aria-labelledby="lb-title">
+      <div class="act-cover">
+        <div class="frame"><div class="frame-mat">
+          <img src="covers/the-lotus-blade-front.jpg" width="800" height="1257" alt="Front cover of The Lotus Blade and The Empty Hand by Swayam Shakya: two travellers on a stone path between mountain cliffs, under a low sun and pink blossom">
+        </div>
+        <p class="seal" aria-hidden="true">Still<br>being<br>written</p></div>
+      </div>
+      <div class="act-text">
+        <p class="act-no"><span>Act III</span><i></i><span>In progress</span></p>
+        <h3 class="act-title" id="lb-title">The Lotus Blade <small>and The Empty Hand</small></h3>
+        <p class="act-genre">A novel in progress</p>
+        <p class="lotus-note">I’m writing this one now. The cover is finished and the chapters are still in progress, so there is nothing to read yet.</p>
+        <dl class="bill">
+          <div><dt>Status</dt><dd>Being written</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <div class="interval">
+      <p class="th-kicker">Interval</p>
+      <p>The other door leads to the computer room.</p>
+      <a class="btn-line" href="#projects" data-door="projects">See the projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ THE PROJECTS: an old computer ═════════════ -->
+<section class="rm" id="projects" data-world="projects" aria-labelledby="projects-title">
+  <div class="wrap">
+    <header class="rm-head">
+      <p class="rm-kicker">C:\&gt; CD \PROJECTS</p>
+      <h2 class="rm-title" id="projects-title" tabindex="-1">The Projects</h2>
+      <p class="rm-sub">Thirteen projects, grouped by area: my thesis, quantum computing, AI and data, systems, and applications. Select one to open it. Project files will be uploaded here soon. Below the monitor are my two websites and a notable essay.</p>
+    </header>
+
+    <div class="pc">
+      <div class="bezel">
+        <div class="scr">
+          <div class="scr-bar">
+            <span>PROJECTS.EXE</span>
+            <span class="scr-keys" aria-hidden="true">↑↓ SELECT  ENTER OPEN</span>
+            <button class="ph-btn" id="ph-btn" type="button">COLOR: AMBER</button>
+          </div>
+          <div class="scr-body">
+            <nav class="dir" aria-label="Project files">
+              <p class="dir-vol">Volume in drive C is SHAKYA</p>
+              <p>Directory of C:\PROJECTS</p>
+              <p class="dir-grp">\THESIS</p>
+              <ol class="dir-list">
+                <li><a class="dir-row" href="#mining-dashboard" data-proj="mining-dashboard" aria-current="true"><span>1</span><span>MINETRCK</span><span>&lt;DIR&gt;</span><span>10-2026</span></a></li>
+              </ol>
+              <p class="dir-grp">\QUANTUM</p>
+              <ol class="dir-list">
+                <li><a class="dir-row" href="#qec-latency" data-proj="qec-latency"><span>2</span><span>QECLAT</span><span>&lt;DIR&gt;</span><span>06-2026</span></a></li>
+                <li><a class="dir-row" href="#qnas" data-proj="qnas"><span>3</span><span>QNAS</span><span>&lt;DIR&gt;</span><span>06-2026</span></a></li>
+              </ol>
+              <p class="dir-grp">\AI</p>
+              <ol class="dir-list">
+                <li><a class="dir-row" href="#energy" data-proj="energy"><span>4</span><span>ENERGY</span><span>&lt;DIR&gt;</span><span>09-2026</span></a></li>
+                <li><a class="dir-row" href="#geoore" data-proj="geoore"><span>5</span><span>GEOORE</span><span>&lt;DIR&gt;</span><span>06-2026</span></a></li>
+                <li><a class="dir-row" href="#phyvision" data-proj="phyvision"><span>6</span><span>PHYVISN</span><span>&lt;DIR&gt;</span><span>02-2026</span></a></li>
+                <li><a class="dir-row" href="#voxbridge" data-proj="voxbridge"><span>7</span><span>VOXBRDG</span><span>&lt;DIR&gt;</span><span>02-2026</span></a></li>
+                <li><a class="dir-row" href="#testyourbrain" data-proj="testyourbrain"><span>8</span><span>TESTBRN</span><span>&lt;DIR&gt;</span><span>01-2026</span></a></li>
+              </ol>
+              <p class="dir-grp">\SYSTEMS</p>
+              <ol class="dir-list">
+                <li><a class="dir-row" href="#baremetal-rtos" data-proj="baremetal-rtos"><span>9</span><span>RTOS</span><span>&lt;DIR&gt;</span><span>04-2026</span></a></li>
+                <li><a class="dir-row" href="#swarmforge" data-proj="swarmforge"><span>10</span><span>SWARMFRG</span><span>&lt;DIR&gt;</span><span>08-2025</span></a></li>
+              </ol>
+              <p class="dir-grp">\APPS</p>
+              <ol class="dir-list">
+                <li><a class="dir-row" href="#matecheck" data-proj="matecheck"><span>11</span><span>MATECHK</span><span>&lt;DIR&gt;</span><span>04-2026</span></a></li>
+                <li><a class="dir-row" href="#finai" data-proj="finai"><span>12</span><span>FINAI</span><span>&lt;DIR&gt;</span><span>01-2026</span></a></li>
+                <li><a class="dir-row" href="#inlearn" data-proj="inlearn"><span>13</span><span>INLEARN</span><span>&lt;DIR&gt;</span><span>05-2024</span></a></li>
+              </ol>
+              <p class="dir-sum">13 Dir(s)</p>
+              <p>Directory of C:\WEBSITES</p>
+              <ol class="dir-list">
+                <li><a class="dir-row" href="#tutorbtl" data-site="tutorbtl"><span>14</span><span>TUTORBTL</span><span>HTM</span><span>2020</span></a></li>
+                <li><a class="dir-row" href="#manaslu-cs-club" data-site="manaslu-cs-club"><span>15</span><span>MCSC</span><span>HTM</span><span>2020</span></a></li>
+              </ol>
+              <p class="dir-sum">2 File(s)</p>
+              <p>Directory of C:\WRITING</p>
+              <ol class="dir-list">
+                <li><a class="dir-row" href="#gyro-76" data-site="gyro-76"><span>16</span><span>GYRO76</span><span>DOC</span><span>02-2022</span></a></li>
+              </ol>
+              <p class="dir-sum">1 File(s)</p>
+              <p class="dir-sum">For more, type GITHUB</p>
+            </nav>
+
+            <div class="details">
+              <article class="proj is-active" id="mining-dashboard" tabindex="-1" aria-labelledby="mining-dashboard-t">
+                <p class="proj-file">C:\PROJECTS\THESIS\MINETRCK</p>
+                <h3 class="proj-t" id="mining-dashboard-t"><span class="pn">Smart Mining Truck</span><span class="ps">Load Identification and Tracking Dashboard</span></h3>
+                <p class="proj-meta"><span>Oct 2026 – Apr 2027</span><span class="tag-note">CS THESIS</span></p>
+                <p class="proj-desc">My Computer Science thesis: an in-cab application for mining truck drivers. It runs on a screen or tablet inside the truck, as a web app or desktop software, and shows the driver how loaded the truck is, where it is on the mine site and where to go next. The load is identified by a computer-vision model that reads camera images of the truck bed, while GPS and telemetry data track the truck through each haul cycle.</p>
+                <h4 class="proj-h">FEATURES</h4>
+                <ul class="proj-list"><li>Live load display: the camera-based model rates the truck bed as empty, partly loaded, full or overloaded, with an estimated payload, so the driver can check the load before leaving the loading point.</li><li>In-cab warnings, on screen and with a sound, when the truck is overloaded or under-loaded.</li><li>A mine-site map with the truck’s position, assigned route, speed and the next loading or dump point.</li><li>A trip and shift summary for the driver (trips completed, loads carried, cycle and idle times) that also syncs to a supervisor dashboard.</li></ul>
+                <dl class="proj-stack"><div><dt>LANGUAGES</dt><dd>Python, TypeScript, SQL</dd></div><div><dt>TOOLS</dt><dd>PyTorch, Ultralytics YOLO, OpenCV, FastAPI, WebSockets, React, Electron, Leaflet, PostgreSQL with PostGIS, Docker</dd></div></dl>
+                <div class="proj-sk"><h4>SKILLS</h4><ul><li>Computer Vision</li><li>Object Detection</li><li>Real-Time Data Streaming</li><li>GPS Tracking</li><li>Full-Stack Development</li><li>In-Vehicle UI Design</li></ul></div>
+                <p class="proj-files"><b>FILES</b><span>Coming soon. Project files will be added here.</span></p>
+              </article>
+
+              <article class="proj" id="qec-latency" tabindex="-1" aria-labelledby="qec-latency-t">
+                <p class="proj-file">C:\PROJECTS\QUANTUM\QECLAT</p>
+                <h3 class="proj-t" id="qec-latency-t"><span class="pn">QEC Decoder Latency Study</span><span class="ps">Real-Time Quantum Error Correction Against a Coherence Deadline</span></h3>
+                <p class="proj-meta"><span>Jun 2026 – Oct 2026</span><span class="tag-note">COMPLETED</span><span class="tag-note">INDEPENDENT RESEARCH</span></p>
+                <p class="proj-desc">Can a classical decoder written in ordinary software close the quantum error-correction loop (measure the syndrome, decode, apply the correction) before superconducting qubits decohere? I implemented the 3-qubit bit-flip code with real-time feed-forward in Qiskit, timed 10,000 decode cycles each for a Python decoder and a compiled C decoder, and measured how often each missed a 40 µs per-round deadline (T₂ = 120 µs over three syndrome rounds).</p>
+                <h4 class="proj-h">KEY RESULTS</h4>
+                <ul class="proj-list"><li>Typical decodes took 113 ns in Python and 31 ns in C, 350 and 1,300 times inside the 40 µs budget; C was 3.6× faster at the median.</li><li>At 40 µs, Python missed once in 110,000 cycles and C never did (violation rate ≤ 0.0051%, 95% upper bound), about 200 times below the 1% error budget.</li><li>A rare plateau of 4–42 µs operating-system stalls, not decoder speed, set the remaining risk, and no fitted distribution predicted it.</li><li>On calibrated replicas of IBM Heron r2 and Eagle r3 processors, the encoded circuit raised logical fidelity by 1.6–1.7 points over a bare qubit, and a decoder wait doubled the logical error after 8–13 µs.</li></ul>
+                <p class="proj-note">Analysed with exact Clopper–Pearson intervals, bootstrap, Anderson–Darling and Kolmogorov–Smirnov fits, the Hill tail index and Mann–Whitney U. The circuits ran on device replicas; running them on physical IBM hardware is the next step.</p>
+                <dl class="proj-stack"><div><dt>LANGUAGES</dt><dd>Python, C</dd></div><div><dt>TOOLS</dt><dd>Qiskit 2.5, Qiskit Aer, Qiskit IBM Runtime, NumPy, SciPy, statsmodels, Matplotlib, GCC with ctypes</dd></div></dl>
+                <div class="proj-sk"><h4>SKILLS</h4><ul><li>Quantum Error Correction</li><li>Qiskit</li><li>Statistical Analysis</li><li>Performance Benchmarking</li><li>Python</li><li>C</li></ul></div>
+                <p class="proj-files"><b>FILES</b><span>Coming soon. Project files will be added here.</span></p>
+              </article>
+
+              <article class="proj" id="qnas" tabindex="-1" aria-labelledby="qnas-t">
+                <p class="proj-file">C:\PROJECTS\QUANTUM\QNAS</p>
+                <h3 class="proj-t" id="qnas-t"><span class="pn">QNAS</span><span class="ps">Evolutionary Discovery of Efficient Quantum Circuits</span></h3>
+                <p class="proj-meta"><span>Jun 2026 – Oct 2026</span><span class="tag-note">COMPLETED</span><span class="tag-note">INDEPENDENT RESEARCH</span></p>
+                <p class="proj-desc">A software-only quantum neural architecture search framework: a multi-objective genetic algorithm (NSGA-II) that designs the gate layout of a variational quantum circuit for a hybrid quantum-classical classifier. It trades accuracy against circuit depth and the number of two-qubit gates, the noisiest operations on real hardware. About 3,300 lines of Python with 33 automated tests, a command-line pipeline with checkpoint and resume, and four teaching examples.</p>
+                <h4 class="proj-h">KEY RESULTS</h4>
+                <ul class="proj-list"><li>On a 4-qubit image task (handwritten digits, even versus odd), the search evaluated 1,176 circuits and produced a Pareto front of 9 accuracy and cost trade-offs.</li><li>An evolved circuit matched the best hand-crafted template, StronglyEntanglingLayers with 3 layers (83.6% vs 83.9% test accuracy, p = 0.63), with 2 fewer two-qubit gates and 3 fewer layers of depth.</li><li>A pruned circuit with 4 two-qubit gates reached 77.1%, and one with a single two-qubit gate and one trainable angle reached 73.1%, both above a logistic-regression baseline (67.9%).</li><li>A barren-plateau scan reproduced the exponential fall of gradient variance from 2 to 10 qubits, and under 3% depolarizing noise the small evolved circuits kept 63–69% accuracy where the 8-gate template fell to chance.</li></ul>
+                <p class="proj-note">Small classical networks were competitive (79–80%), so the study is about circuit architecture, cost and trainability rather than quantum advantage.</p>
+                <dl class="proj-stack"><div><dt>LANGUAGES</dt><dd>Python</dd></div><div><dt>TOOLS</dt><dd>PennyLane, PyTorch, DEAP, scikit-learn, NumPy, pytest</dd></div></dl>
+                <div class="proj-sk"><h4>SKILLS</h4><ul><li>Quantum Machine Learning</li><li>Variational Quantum Circuits</li><li>Evolutionary Algorithms (NSGA-II)</li><li>PennyLane</li><li>PyTorch</li><li>Python</li></ul></div>
+                <p class="proj-files"><b>FILES</b><span>Coming soon. Project files will be added here.</span></p>
+              </article>
+
+              <article class="proj" id="energy" tabindex="-1" aria-labelledby="energy-t">
+                <p class="proj-file">C:\PROJECTS\AI\ENERGY</p>
+                <h3 class="proj-t" id="energy-t"><span class="pn pn-long">Regression-Based Prediction of Household Appliance Energy Consumption</span></h3>
+                <p class="proj-meta"><span>Sep 2026 – Dec 2026</span></p>
+                <p class="proj-desc">A regression study that predicts how much energy household appliances use from conditions inside and outside the home. It uses the UCI Appliances Energy Prediction dataset: 19,735 sensor readings taken every 10 minutes over 4.5 months, with temperature and humidity measured in each room and weather data from a nearby station. Multiple Linear Regression links those readings to appliance consumption, and the work runs from data preparation in pandas, through exploratory analysis and visualization, to model building in scikit-learn and evaluation with R², MAE and RMSE.</p>
+                <h4 class="proj-h">FEATURES</h4>
+                <ul class="proj-list"><li>Data preparation: timestamp parsing, checks for missing values and outliers, and feature scaling for the regression model.</li><li>Exploratory analysis: correlation heatmaps, time-of-day and day-of-week usage patterns, and the distribution of appliance energy.</li><li>A Multiple Linear Regression model in scikit-learn on room temperature, humidity and outdoor weather features, with a train/test split that keeps time order.</li><li>Evaluation with R², MAE and RMSE, plus residual plots that show where a linear model fits well and where it falls short.</li></ul>
+                <dl class="proj-stack"><div><dt>LANGUAGES</dt><dd>Python</dd></div><div><dt>TOOLS</dt><dd>pandas, NumPy, scikit-learn, Matplotlib, Seaborn, Jupyter Notebook</dd></div></dl>
+                <div class="proj-sk"><h4>SKILLS</h4><ul><li>Python (Programming Language)</li><li>Pandas (Software)</li><li>scikit-learn</li><li>Linear Regression</li><li>Exploratory Data Analysis</li><li>Data Visualization</li></ul></div>
+                <p class="proj-files"><b>FILES</b><span>Coming soon. Project files will be added here.</span></p>
+              </article>
+
+              <article class="proj" id="geoore" tabindex="-1" aria-labelledby="geoore-t">
+                <p class="proj-file">C:\PROJECTS\AI\GEOORE</p>
+                <h3 class="proj-t" id="geoore-t"><span class="pn">GeoOre</span><span class="ps">Geospatial Ore-Field Identification and Ore Grade Classification</span></h3>
+                <p class="proj-meta"><span>Jun 2026 – Jul 2026</span><span class="tag-note">AI · GEOSPATIAL · SOFTWARE ONLY</span></p>
+                <p class="proj-desc">A fully software-based mineral exploration tool: no drones or field sensors, only open data and machine learning. GeoOre combines satellite imagery, elevation models and geological survey maps to find areas likely to hold ore, then classifies ore quality from geochemical sample data, so geologists can decide where to sample next.</p>
+                <h4 class="proj-h">FEATURES</h4>
+                <ul class="proj-list"><li>Field identification: mineral indices computed from multispectral satellite bands (iron-oxide and clay-alteration ratios), combined with terrain and fault-line layers to score every map cell.</li><li>Ore quality classifier: a gradient-boosted model predicts high, medium or low grade from assay features, with feature importance showing which elements drive each prediction.</li><li>Interactive map with prospectivity heatmaps, confidence scores and an explanation for each cell.</li><li>Exports results as GeoJSON and shapefiles for QGIS or ArcGIS.</li></ul>
+                <dl class="proj-stack"><div><dt>LANGUAGES</dt><dd>Python</dd></div><div><dt>TOOLS</dt><dd>Google Earth Engine (Sentinel-2, Landsat), Rasterio, GDAL, GeoPandas, scikit-learn, XGBoost, SHAP, Folium (Leaflet), Streamlit</dd></div></dl>
+                <div class="proj-sk"><h4>SKILLS</h4><ul><li>Geospatial Analysis (GIS)</li><li>Remote Sensing</li><li>Machine Learning</li><li>Classification</li><li>Python</li><li>Data Visualization</li></ul></div>
+                <p class="proj-files"><b>FILES</b><span>Coming soon. Project files will be added here.</span></p>
+              </article>
+
+              <article class="proj" id="phyvision" tabindex="-1" aria-labelledby="phyvision-t">
+                <p class="proj-file">C:\PROJECTS\AI\PHYVISN</p>
+                <h3 class="proj-t" id="phyvision-t"><span class="pn">PhyVision</span><span class="ps">Human Body Physique Identifier</span></h3>
+                <p class="proj-meta"><span>Feb 2026 – May 2026</span></p>
+                <p class="proj-desc">A deep-learning computer vision system that classifies body physique from a photo into one of four archetypes: Athletic, Normal, Obese and Skinny. It uses transfer learning: a ResNet-18 backbone pretrained on ImageNet is fine-tuned on labelled body images, with a new four-class classification head.</p>
+                <h4 class="proj-h">FEATURES</h4>
+                <ul class="proj-list"><li>An image pipeline with resizing, normalisation and augmentation (flips, rotations, colour jitter) to make the model robust to pose and lighting.</li><li>Transfer learning in two stages: the new head is trained with the backbone frozen, then deeper layers are fine-tuned at a lower learning rate.</li><li>Evaluation with accuracy, per-class precision and recall, and a confusion matrix showing which archetypes get mixed up.</li><li>A prediction script that returns the class and a confidence score for a new photo.</li></ul>
+                <dl class="proj-stack"><div><dt>LANGUAGES</dt><dd>Python</dd></div><div><dt>TOOLS</dt><dd>PyTorch, torchvision, OpenCV, NumPy, scikit-learn, Matplotlib, Jupyter Notebook</dd></div></dl>
+                <div class="proj-sk"><h4>SKILLS</h4><ul><li>Transfer Learning</li><li>ResNet-18</li><li>Deep Learning</li><li>Computer Vision</li><li>Image Classification</li></ul></div>
+                <p class="proj-files"><b>FILES</b><span>Coming soon. Project files will be added here.</span></p>
+              </article>
+
+              <article class="proj" id="voxbridge" tabindex="-1" aria-labelledby="voxbridge-t">
+                <p class="proj-file">C:\PROJECTS\AI\VOXBRDG</p>
+                <h3 class="proj-t" id="voxbridge-t"><span class="pn">VoxBridge</span><span class="ps">AI Speech Translator with Speech-to-Text and Text-to-Speech</span></h3>
+                <p class="proj-meta"><span>Feb 2026 – Mar 2026</span><span class="tag-note">AI · LANGUAGE TRANSLATION</span></p>
+                <p class="proj-desc">An AI tool that translates spoken language. You speak in one language, and VoxBridge transcribes your speech, translates the text and reads the translation aloud in a natural voice in the other language. It also works from typed text to translated speech, so two people who don’t share a language can hold a conversation.</p>
+                <h4 class="proj-h">FEATURES</h4>
+                <ul class="proj-list"><li>Speech-to-text with an automatic speech recognition model that also detects which language is being spoken.</li><li>Neural machine translation between the chosen source and target languages.</li><li>Text-to-speech that voices the translation, with a choice of voice and speaking speed.</li><li>Conversation mode with a side-by-side transcript and translation history, and replay of any line.</li></ul>
+                <dl class="proj-stack"><div><dt>LANGUAGES</dt><dd>Python, TypeScript</dd></div><div><dt>TOOLS</dt><dd>OpenAI Whisper, Hugging Face Transformers (MarianMT, NLLB), Coqui TTS, FastAPI, WebSockets, React, Web Audio API</dd></div></dl>
+                <div class="proj-sk"><h4>SKILLS</h4><ul><li>Speech Recognition</li><li>Neural Machine Translation</li><li>Text-to-Speech</li><li>Natural Language Processing</li><li>Hugging Face Transformers</li><li>Python</li></ul></div>
+                <p class="proj-files"><b>FILES</b><span>Coming soon. Project files will be added here.</span></p>
+              </article>
+
+              <article class="proj" id="testyourbrain" tabindex="-1" aria-labelledby="testyourbrain-t">
+                <p class="proj-file">C:\PROJECTS\AI\TESTBRN</p>
+                <h3 class="proj-t" id="testyourbrain-t"><span class="pn">TestYourBrain</span><span class="ps">AI Quiz Generator from Your Own Study Material</span></h3>
+                <p class="proj-meta"><span>Jan 2026 – Feb 2026</span><span class="tag-note">AI · EDUCATION</span></p>
+                <p class="proj-desc">Upload lecture slides, PDFs, Word documents or notes, and TestYourBrain turns them into a quiz. It extracts the text, splits it into topics and uses a large language model with retrieval-augmented generation (RAG) to write questions grounded in the uploaded material, so every question can be traced back to a slide or page.</p>
+                <h4 class="proj-h">FEATURES</h4>
+                <ul class="proj-list"><li>Reads PDF, PowerPoint, Word and plain-text files, with OCR for scanned pages.</li><li>Generates multiple-choice, true/false and short-answer questions at a chosen difficulty and length, each with the answer, an explanation and a link to its source slide or page.</li><li>Instant feedback while taking the quiz, and a results page that points out weak topics to revise.</li><li>Quizzes can be saved, retaken and shared with classmates.</li></ul>
+                <dl class="proj-stack"><div><dt>LANGUAGES</dt><dd>Python, TypeScript</dd></div><div><dt>TOOLS</dt><dd>FastAPI, LangChain, an LLM API, sentence-transformer embeddings, ChromaDB, PyMuPDF, python-pptx, python-docx, Tesseract OCR, Next.js, Tailwind CSS, PostgreSQL</dd></div></dl>
+                <div class="proj-sk"><h4>SKILLS</h4><ul><li>Large Language Models (LLMs)</li><li>Retrieval-Augmented Generation (RAG)</li><li>Natural Language Processing</li><li>Prompt Engineering</li><li>Next.js</li><li>FastAPI</li></ul></div>
+                <p class="proj-files"><b>FILES</b><span>Coming soon. Project files will be added here.</span></p>
+              </article>
+
+              <article class="proj" id="baremetal-rtos" tabindex="-1" aria-labelledby="rtos-t">
+                <p class="proj-file">C:\PROJECTS\SYSTEMS\RTOS</p>
+                <h3 class="proj-t" id="rtos-t"><span class="pn">BareMetal-RTOS</span><span class="ps">Multi-Threaded Real-Time Kernel</span></h3>
+                <p class="proj-meta"><span>Apr 2026 – Oct 2026</span></p>
+                <p class="proj-desc">A lightweight, multi-threaded real-time operating system kernel for ARM Cortex-M microcontrollers, running directly on the hardware with no operating system underneath. It schedules concurrent tasks under strict timing and processes sensor telemetry with low latency, the kind of workload found in robots, drones and industrial controllers.</p>
+                <h4 class="proj-h">FEATURES</h4>
+                <ul class="proj-list"><li>A preemptive, priority-based scheduler driven by the SysTick timer, with context switching in the PendSV handler.</li><li>Thread control blocks with separate stacks, and sleep, yield and delay services for tasks.</li><li>Synchronisation primitives (mutexes, semaphores and message queues) for safe data sharing between threads and interrupts.</li><li>A low-latency telemetry path: sensors are read in interrupt handlers and samples reach processing tasks through lock-free ring buffers.</li></ul>
+                <dl class="proj-stack"><div><dt>LANGUAGES</dt><dd>C++, C, ARM assembly</dd></div><div><dt>TOOLS</dt><dd>arm-none-eabi GCC toolchain, CMake, CMSIS, OpenOCD, GDB, a Cortex-M development board</dd></div></dl>
+                <div class="proj-sk"><h4>SKILLS</h4><ul><li>Bare-Metal ARM</li><li>Embedded C++</li><li>Real-Time Operating Systems (RTOS)</li><li>ARM Cortex-M</li><li>Task Scheduling</li><li>Multithreading</li></ul></div>
+                <p class="proj-files"><b>FILES</b><span>Coming soon. Project files will be added here.</span></p>
+              </article>
+
+              <article class="proj" id="swarmforge" tabindex="-1" aria-labelledby="swarmforge-t">
+                <p class="proj-file">C:\PROJECTS\SYSTEMS\SWARMFRG</p>
+                <h3 class="proj-t" id="swarmforge-t"><span class="pn">SwarmForge</span><span class="ps">Peer-to-Peer File Distribution System</span></h3>
+                <p class="proj-meta"><span>Aug 2025 – Dec 2025</span></p>
+                <p class="proj-desc">A lightweight peer-to-peer file distribution system with a graphical interface, in the style of BitTorrent. A central tracker handles discovery and management, keeping a record of which peers hold which parts of a file, while the peers transfer the data directly to each other, so downloads get faster as more peers join.</p>
+                <h4 class="proj-h">FEATURES</h4>
+                <ul class="proj-list"><li>Files are split into fixed-size chunks with hashes, so each piece is verified and can be shared as soon as it arrives.</li><li>A tracker that registers peers and files and answers which peers hold each chunk.</li><li>Peers download different chunks from several peers at once over TCP sockets while uploading to others in parallel.</li><li>A desktop GUI showing shared files, connected peers and live transfer progress.</li></ul>
+                <dl class="proj-stack"><div><dt>LANGUAGES</dt><dd>Python</dd></div><div><dt>TOOLS</dt><dd>TCP sockets, threading, hashlib (SHA-256), Tkinter, JSON</dd></div></dl>
+                <div class="proj-sk"><h4>SKILLS</h4><ul><li>Distributed Systems</li><li>GUI development</li><li>Peer-to-Peer (P2P) Networking</li><li>Computer Networks</li><li>Socket Programming</li></ul></div>
+                <p class="proj-files"><b>FILES</b><span>Coming soon. Project files will be added here.</span></p>
+              </article>
+
+              <article class="proj" id="matecheck" tabindex="-1" aria-labelledby="matecheck-t">
+                <p class="proj-file">C:\PROJECTS\APPS\MATECHK</p>
+                <h3 class="proj-t" id="matecheck-t"><span class="pn">MateCheck</span><span class="ps">Reverse Chess for Analysing Your Chess Knowledge</span></h3>
+                <p class="proj-meta"><span>Apr 2026 – May 2026</span><span class="tag-note">GAME · NEW CONCEPT</span></p>
+                <p class="proj-desc">A new way to test chess understanding. MateCheck starts at the end of a game, with only a king and queen on the board, and you play the game backwards. Each retro move un-moves a piece or un-captures one, bringing pawns, knights, bishops and rooks back onto the board until the armies are rebuilt. At the end, MateCheck analyses the game you reconstructed, move by move, from the opening to the final position.</p>
+                <h4 class="proj-h">FEATURES</h4>
+                <ul class="proj-list"><li>A retrograde move generator that allows only legal backward moves: un-moves, un-captures that return a piece, and un-promotions.</li><li>Pieces unlock as you go: each correct un-capture gives you access to pawns, knights, bishops and rooks.</li><li>The reconstructed game is replayed forwards and every position is evaluated with Stockfish, marking strong, inaccurate and losing moves.</li><li>A score for how plausible and how strong your reconstruction is, plus puzzles that start from famous final positions.</li></ul>
+                <dl class="proj-stack"><div><dt>LANGUAGES</dt><dd>TypeScript, JavaScript</dd></div><div><dt>TOOLS</dt><dd>React, chess.js, react-chessboard, Stockfish (WebAssembly), Node.js, Express, MongoDB</dd></div></dl>
+                <div class="proj-sk"><h4>SKILLS</h4><ul><li>Game Development</li><li>Algorithms (Retrograde Analysis)</li><li>Chess Engines (Stockfish)</li><li>React</li><li>TypeScript</li><li>Node.js</li></ul></div>
+                <p class="proj-files"><b>FILES</b><span>Coming soon. Project files will be added here.</span></p>
+              </article>
+
+              <article class="proj" id="finai" tabindex="-1" aria-labelledby="finai-t">
+                <p class="proj-file">C:\PROJECTS\APPS\FINAI</p>
+                <h3 class="proj-t" id="finai-t"><span class="pn">FinAI</span><span class="ps">Web-based Finance Management System</span></h3>
+                <p class="proj-meta"><span>Jan 2026 – Apr 2026</span></p>
+                <p class="proj-desc">A web-based personal finance platform built on Next.js that brings income, spending and budgets into one place. Users record income and expenses, a Python machine-learning service categorises transactions automatically, and the app sends intelligent alerts when spending looks unusual or a budget is about to run out.</p>
+                <h4 class="proj-h">FEATURES</h4>
+                <ul class="proj-list"><li>Income and expense tracking with accounts, budgets and recurring transactions.</li><li>Automatic categorisation of transactions from their descriptions, using a text classifier served from Python.</li><li>Smart alerts for overspending, unusual transactions and upcoming bills.</li><li>A dashboard with charts of spending by category and month, and secure sign-in.</li></ul>
+                <dl class="proj-stack"><div><dt>LANGUAGES</dt><dd>TypeScript, JavaScript, Python</dd></div><div><dt>TOOLS</dt><dd>Next.js, React, Tailwind CSS, FastAPI, scikit-learn, PostgreSQL, Prisma, Chart.js</dd></div></dl>
+                <div class="proj-sk"><h4>SKILLS</h4><ul><li>Next.js</li><li>Python (Programming Language)</li><li>React.js</li><li>Full-Stack Development</li><li>Machine Learning</li></ul></div>
+                <p class="proj-files"><b>FILES</b><span>Coming soon. Project files will be added here.</span></p>
+              </article>
+
+              <article class="proj" id="inlearn" tabindex="-1" aria-labelledby="inlearn-t">
+                <p class="proj-file">C:\PROJECTS\APPS\INLEARN</p>
+                <h3 class="proj-t" id="inlearn-t"><span class="pn">InLearn</span><span class="ps">Learning Management System</span></h3>
+                <p class="proj-meta"><span>May 2024 – Sep 2024</span></p>
+                <p class="proj-desc">A learning management system for colleges and universities, built as a desktop application. It brings together what students, instructors and administrators need in one place: secure sign-in, course management, assignment handling, announcements and grade tracking.</p>
+                <h4 class="proj-h">FEATURES</h4>
+                <ul class="proj-list"><li>User authentication with separate roles for students, instructors and administrators, and hashed passwords.</li><li>Course management: create courses, enrol students and organise course materials.</li><li>Assignments: instructors post tasks with due dates, students submit their work and instructors grade it.</li><li>Course announcements, and a gradebook where students follow their marks.</li></ul>
+                <dl class="proj-stack"><div><dt>LANGUAGES</dt><dd>Java, SQL</dd></div><div><dt>TOOLS</dt><dd>JavaFX, Scene Builder (FXML), MySQL, JDBC, Maven</dd></div></dl>
+                <div class="proj-sk"><h4>SKILLS</h4><ul><li>JavaFX</li><li>MySQL</li><li>Java (Programming Language)</li><li>Object-Oriented Programming (OOP)</li><li>Database Design</li><li>User Authentication</li></ul></div>
+                <p class="proj-files"><b>FILES</b><span>Coming soon. Project files will be added here.</span></p>
+              </article>
+            </div>
+          </div>
+
+          <form class="prompt" id="prompt" autocomplete="off">
+            <div class="prompt-log" id="prompt-log" aria-live="polite"><div>Type HELP and press Enter for a list of commands.</div></div>
+            <div class="prompt-line"><label for="cmd">C:\PROJECTS&gt;</label><input id="cmd" name="cmd" type="text" spellcheck="false" autocapitalize="off" enterkeyhint="go"></div>
+          </form>
+        </div>
+        <div class="bezel-foot" aria-hidden="true">
+          <span class="badge">SS-86</span>
+          <span class="vents"></span>
+          <span class="power">Power <span class="led"></span></span>
+        </div>
+      </div>
+      <div class="pc-neck" aria-hidden="true"></div>
+      <div class="pc-foot" aria-hidden="true"></div>
+    </div>
+
+    <section class="sites" id="websites" aria-labelledby="sites-title">
+      <h3 class="sites-title" id="sites-title">Websites</h3>
+      <p class="sites-sub">Two things I started in 2020, each with its own website. Open a site to see the full page.</p>
+      <div class="sites-grid">
+        <article class="win" id="tutorbtl" aria-labelledby="tutorbtl-t">
+          <div class="win-bar" aria-hidden="true"><span class="win-box"></span><span class="win-name">tutorbtl.html</span><span class="win-box"></span></div>
+          <div class="win-view"><img src="sites/tutorbtl.jpg" width="960" height="645" alt="The TutorBTL home page, headed Learn with confidence. Grow with TutorBTL."></div>
+          <div class="win-body">
+            <p class="win-role">Founder · 2020</p>
+            <h4 id="tutorbtl-t">TutorBTL</h4>
+            <p>Online and on-site tutoring: Grades 1 to 10 in all subjects, and 10+2 Physics, English and Computer Science. I founded it in 2020 and I’m its tutor.</p>
+            <a class="win-btn" href="sites/tutorbtl.html" target="_blank" rel="noopener">Visit the website</a>
+          </div>
+        </article>
+        <article class="win" id="manaslu-cs-club" aria-labelledby="mcsc-t">
+          <div class="win-bar" aria-hidden="true"><span class="win-box"></span><span class="win-name">manaslu-cs-club.html</span><span class="win-box"></span></div>
+          <div class="win-view"><img src="sites/manaslu-cs-club.jpg" width="960" height="645" alt="The Manaslu Computer Science Club home page, headed Explore ideas. Build what’s next."></div>
+          <div class="win-body">
+            <p class="win-role">Co-founder · 2020</p>
+            <h4 id="mcsc-t">Manaslu Computer Science Club (MCSC)</h4>
+            <p>A computer science club in Butwal, Lumbini, Nepal, founded in 2020, where students explore programming, AI and emerging technology and build projects together. Its featured project is GYRO-76, a robot prototype concept focused on sustainability and reused materials. I’m its co-founder.</p>
+            <a class="win-btn" href="sites/manaslu-cs-club.html" target="_blank" rel="noopener">Visit the website</a>
+          </div>
+        </article>
+      </div>
+
+    <section class="works" id="notable-works" aria-labelledby="works-title">
+      <h3 class="sites-title" id="works-title">Notable works</h3>
+      <p class="sites-sub">Additional reading beyond the novels and the code.</p>
+      <article class="work" id="gyro-76" aria-labelledby="gyro-t">
+        <div class="work-info">
+          <p class="work-kicker">C:\WRITING\GYRO76.DOC</p>
+          <h4 class="work-title" id="gyro-t">GYRO-76</h4>
+          <p class="work-sub">A college admission essay for US university applications.</p>
+          <p class="work-desc">Authored a compelling college essay that contributed to offers from five highly ranked U.S. universities: University of Texas at Arlington, University of Texas at Dallas, University of New Mexico, University of Iowa, and Texas Tech University. Received merit-based scholarship offers ranging from $10,000 to $20,000 annually, recognizing academic potential and overall application strength.</p>
+          <dl class="work-facts">
+            <div><dt>DATE</dt><dd>Feb 2022</dd></div>
+            <div><dt>TYPE</dt><dd>College application essay</dd></div>
+            <div><dt>OFFERS</dt><dd>5 U.S. universities</dd></div>
+            <div><dt>LENGTH</dt><dd>About 610 words</dd></div>
+          </dl>
+          <p class="work-note">Part of my Manaslu Computer Science Club journey. The essay tells how a quiet computer science group and an unconventional instructor, Mr. Thapa, built a robot in three weeks and named it GYRO-76, the same GYRO-76 that is featured on the club’s website.</p>
+          <div class="work-actions">
+            <button class="work-btn" type="button" id="print-btn" aria-expanded="false" aria-controls="gyro-paper">PRINT THE FULL ESSAY</button>
+            <a class="work-link" href="writing/gyro-76.jpg" target="_blank" rel="noopener">View the original page</a>
+          </div>
+        </div>
+        <div class="printer-wrap">
+          <div class="printer" aria-hidden="true"><span class="pr-badge">SS-80 Dot matrix</span><span class="pr-lights"><i></i>On line</span><span class="pr-slot"></span></div>
+          <div class="paper" id="gyro-paper">
+            <div class="paper-body">
+              <p class="po-title">GYRO-76</p>
+              <p class="po-sub">A College Application Essay</p>
+              <p class="po-by">Swayam Shakya</p>
+              <p>Cricket was my world from the time I was a child. Every morning, my first thought was how to give my best at that day’s practice. My body was a map of random bruises and exhaustion, and my room was filled with sportswear, Slazenger shoes, and posters. I lived for the roar of the crowd, the energy of my teammates, the intensity of the field, the sudden twists of a close match, and the celebrations afterward. I served as vice captain of my school team for two years and as an instructor for the junior team. Yet cricket was only one part of me, and I soon realized that it was not what I wanted to pursue.</p>
+              <p>That realization came midway through my final year of school. Like my classmates, I was preoccupied with grades, admissions, and board exams, while also being expected to take part in several projects and activities. Everyone joined the groups that interested them most. Unfortunately, the sports group I wanted was already full, so I decided to join the Computer Science group instead.</p>
+              <p>At first, I regretted that decision. The group had four members, including me. Our leader was an introvert, and the other two members seemed disengaged. Honestly, even a casual conversation felt like a struggle. I could not tell whether they were uncomfortable around me or simply ignoring me. For days, we gathered, sat together for hours, and left without so much as exchanging a glance. It was deeply frustrating. That began to change on the day Mr. Thapa, our instructor, arrived.</p>
+              <p>My first impression of him was skeptical. He dressed like a rowdy biker, with black sunglasses, silver chains around his neck, and a tattoo on his neck. <em>Now this group is full of misfits</em>, I thought. It was immature of me to judge him by his outfit. Although his methods were unconventional, he possessed exceptional skill and knowledge. His presence gradually lifted the gloomy atmosphere of the room. Our leader began to share his ideas and opinions, the girls became attentive and interactive, and I came to understand them a little better each day. I was glad. Soon afterward, we encountered an event that would have a profound impact on my life.</p>
+              <p>A neighboring school announced an Inter-School Education Fair, where students could showcase their talents in a field of their choice. Mr. Thapa gathered us in the room to discuss our project. As we entered, I noticed him sketching structures on the board. Curious, I asked him what he was drawing. “We’re going to build a robot,” he answered eagerly. We were stunned. “But is that even possible in the time we have?” I asked. “Yes, of course,” he replied with a smile.</p>
+              <p>For the next three weeks, we worked alongside Mr. Thapa, and his dedication to the project was truly inspiring. After weeks of effort, we finally built our robot. We named it <strong>GYRO-76</strong>, combining the third letter of each member’s first name. It was the first project I had ever taken part in after giving up cricket. Deep down, I felt that our meeting had been a fortunate one, and the experience deepened my passion for computers remarkably.</p>
+              <p>My curiosity to discover more about that passion has resolved many of my doubts, and I am ready to seek answers to whatever challenges lie ahead. To me, studying computer engineering is a significant step toward my career. I am confident that my determination will help me succeed in your program, and I look forward to learning from every experience and giving my best in the field I have chosen. Someday, I hope to build another GYRO-76 with a group of lovable misfits.</p>
+              <p class="po-foot"><span>Swayam Shakya | GYRO-76</span><span>Page 1</span></p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+    <div class="gh">
+      <div>
+        <p class="gh-line">C:\&gt; MORE</p>
+        <p class="gh-text">For more, visit my GitHub.</p>
+      </div>
+      <a class="work-btn gh-btn" href="https://github.com/requiemdoomed" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>github.com/requiemdoomed</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ ABOUT ═════════════ -->
+<section class="ab grain" id="about" data-world="lobby" aria-labelledby="about-title">
+  <div class="wrap ab-grid">
+    <div class="ab-copy">
+      <p class="ab-kicker">About</p>
+      <h2 class="ab-title" id="about-title" tabindex="-1">Hello, I’m Swayam.</h2>
+      <p>I’m studying for a Bachelor of Computer Science (Honours) at Algoma University in Brampton, Ontario, where I’m also an undergraduate AI/ML researcher and a teaching assistant.</p>
+      <p>I write long-form mystery and supernatural fiction. My first novel, The Mirage in the Mist, follows a young man searching for the past he can’t remember. The Hanging Lord is set in a hill village in Nepal where the doors are barred before sunset. I’m now writing The Lotus Blade and The Empty Hand.</p>
+      <p>In 2020 I founded TutorBTL, an online and on-site tutoring service, and co-founded the Manaslu Computer Science Club (MCSC) in Butwal, Nepal. My college application essay, GYRO-76, comes from that club journey. My software projects range from quantum error correction and evolutionary quantum circuit search to a real-time kernel for ARM Cortex-M microcontrollers, and my Computer Science thesis is an in-cab app that shows mining truck drivers their load, position and route.</p>
+      <p>The quickest way to reach me is a message on LinkedIn. More of my work is on GitHub at <a href="https://github.com/requiemdoomed" target="_blank" rel="noopener">requiemdoomed</a>.</p>
+      <a class="li-btn" id="linkedin-link" href="#about" target="_blank" rel="noopener" hidden>Open my LinkedIn profile</a>
+
+      <div class="card" role="group" aria-label="Catalogue card">
+        <p class="card-head"><span>SHAKYA, Swayam</span><span>Author card</span></p>
+        <p class="ind">Writer/Author. Bachelor of Computer Science (Honours), Algoma University, Brampton, Ontario.</p>
+        <p class="ind">Undergraduate AI/ML Researcher and Teaching Assistant, Algoma University.</p>
+        <p class="ind">Novels: The Mirage in the Mist (2023). The Hanging Lord (2026). The Lotus Blade and The Empty Hand (in progress). Essay: GYRO-76 (2022).</p>
+        <p class="ind">Founder, TutorBTL (2020). Co-founder, Manaslu CS Club, MCSC (2020).</p>
+        <p class="card-sub">1. Mystery fiction. 2. Supernatural fiction. 3. Computer science.</p>
+      </div>
+    </div>
+
+    <div class="tl-wrap">
+      <h3>Timeline</h3>
+      <ul class="legend" aria-label="Key">
+        <li><span class="mk mk-book" aria-hidden="true"></span>Writing</li>
+        <li><span class="mk mk-code" aria-hidden="true"></span>Project</li>
+        <li><span class="mk mk-venture" aria-hidden="true"></span>Role</li>
+      </ul>
+      <ol class="tl">
+        <li><span class="mk mk-venture" aria-hidden="true"></span><span class="tl-when">2020 · Role</span><span class="tl-what">Founded TutorBTL</span><span class="tl-note">Online and on-site tutoring</span></li>
+        <li><span class="mk mk-venture" aria-hidden="true"></span><span class="tl-when">2020 · Role</span><span class="tl-what">Co-founded the Manaslu Computer Science Club (MCSC)</span><span class="tl-note">Butwal, Lumbini, Nepal</span></li>
+        <li><span class="mk mk-book" aria-hidden="true"></span><span class="tl-when">Feb 2022 · Writing</span><span class="tl-what">GYRO-76</span><span class="tl-note">College application essay for US universities</span></li>
+        <li><span class="mk mk-book" aria-hidden="true"></span><span class="tl-when">2023 · Writing</span><span class="tl-what">The Mirage in the Mist</span><span class="tl-note">First novel: mystery, thriller, suspense</span></li>
+        <li><span class="mk mk-code" aria-hidden="true"></span><span class="tl-when">May–Sep 2024 · Project</span><span class="tl-what">InLearn</span><span class="tl-note">Learning management system</span></li>
+        <li><span class="mk mk-code" aria-hidden="true"></span><span class="tl-when">Aug–Dec 2025 · Project</span><span class="tl-what">SwarmForge</span><span class="tl-note">Peer-to-peer file distribution</span></li>
+        <li><span class="mk mk-code" aria-hidden="true"></span><span class="tl-when">Jan–Feb 2026 · Project</span><span class="tl-what">TestYourBrain</span><span class="tl-note">AI quiz generator from study material</span></li>
+        <li><span class="mk mk-code" aria-hidden="true"></span><span class="tl-when">Jan–Apr 2026 · Project</span><span class="tl-what">FinAI</span><span class="tl-note">Web-based finance management</span></li>
+        <li><span class="mk mk-code" aria-hidden="true"></span><span class="tl-when">Feb–Mar 2026 · Project</span><span class="tl-what">VoxBridge</span><span class="tl-note">AI speech translator</span></li>
+        <li><span class="mk mk-code" aria-hidden="true"></span><span class="tl-when">Feb–May 2026 · Project</span><span class="tl-what">PhyVision</span><span class="tl-note">Body physique classifier with ResNet-18</span></li>
+        <li><span class="mk mk-code" aria-hidden="true"></span><span class="tl-when">Apr–May 2026 · Project</span><span class="tl-what">MateCheck</span><span class="tl-note">Reverse chess for analysing chess knowledge</span></li>
+        <li><span class="mk mk-code" aria-hidden="true"></span><span class="tl-when">Apr–Oct 2026 · Project</span><span class="tl-what">BareMetal-RTOS</span><span class="tl-note">Real-time kernel for ARM Cortex-M</span></li>
+        <li><span class="mk mk-code" aria-hidden="true"></span><span class="tl-when">Jun–Jul 2026 · Project</span><span class="tl-what">GeoOre</span><span class="tl-note">Ore-field identification and ore grade classification</span></li>
+        <li><span class="mk mk-code" aria-hidden="true"></span><span class="tl-when">Jun–Oct 2026 · Project</span><span class="tl-what">QEC Decoder Latency Study</span><span class="tl-note">Real-time quantum error correction, completed Oct 2026</span></li>
+        <li><span class="mk mk-code" aria-hidden="true"></span><span class="tl-when">Jun–Oct 2026 · Project</span><span class="tl-what">QNAS</span><span class="tl-note">Evolutionary quantum circuit search, completed Oct 2026</span></li>
+        <li><span class="mk mk-book" aria-hidden="true"></span><span class="tl-when">2026 · Writing</span><span class="tl-what">The Hanging Lord</span><span class="tl-note">Second novel: a supernatural mystery thriller</span></li>
+        <li><span class="mk mk-code" aria-hidden="true"></span><span class="tl-when">Sep–Dec 2026 · Project</span><span class="tl-what">Appliance energy prediction</span><span class="tl-note">Multiple linear regression on the UCI dataset</span></li>
+        <li><span class="mk mk-code" aria-hidden="true"></span><span class="tl-when">Oct 2026–Apr 2027 · Thesis</span><span class="tl-what">Smart Mining Truck Load Identification and Tracking Dashboard</span><span class="tl-note">Computer Science thesis, in-cab driver app</span></li>
+        <li><span class="mk mk-venture" aria-hidden="true"></span><span class="tl-when">Now · Role</span><span class="tl-what">Undergraduate AI/ML Researcher and Teaching Assistant</span><span class="tl-note">Algoma University</span></li>
+        <li><span class="mk mk-book" aria-hidden="true"></span><span class="tl-when">Now · Writing</span><span class="tl-what">The Lotus Blade and The Empty Hand</span><span class="tl-note">Being written</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft-in">
+    <p>© 2026 Swayam Shakya. The novels are shared here by their author. All rights reserved.</p>
+    <p><a href="https://github.com/requiemdoomed" target="_blank" rel="noopener">GitHub: requiemdoomed</a> · <a href="#top">Back to the lobby</a></p>
+  </div>
+</footer>
+
+<!-- transitions -->
+<div class="ov ov-curtain" id="ov-curtain" hidden aria-hidden="true">
+  <div class="cur cur-l"></div><div class="cur cur-r"></div>
+  <div class="valance"></div>
+  <div class="cur-title"><span>Swayam Shakya presents</span><strong>The Novels</strong></div>
+  <p class="ov-skip">Click or press any key to skip</p>
+</div>
+<div class="ov ov-crt" id="ov-crt" hidden aria-hidden="true">
+  <div class="crt-tube"><pre class="crt-text" id="crt-text"></pre></div>
+  <p class="ov-skip">PRESS ANY KEY TO SKIP</p>
+</div>
+
+<!-- the book reader -->
+<dialog class="rd" id="reader" aria-labelledby="reader-title">
+  <div class="rd-top">
+    <button class="rd-x" id="rd-close" type="button" aria-label="Close the book"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    <h2 class="rd-title" id="reader-title">The novel</h2>
+    <label class="sr" for="rd-chapter">Go to a chapter</label>
+    <select class="rd-sel" id="rd-chapter"></select>
+    <button class="rd-tool" id="rd-zoom" type="button" aria-pressed="false" title="Zoom to page width (Z)"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" stroke-width="1.7" fill="none"/><path d="M11.5 11.5L16 16M5 7.5h5M7.5 5v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Zoom</span></button>
+    <button class="rd-tool" id="rd-full" type="button" aria-pressed="false" title="Full screen (F)" hidden><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M2 6.5V2h4.5M11.5 2H16v4.5M16 11.5V16h-4.5M6.5 16H2v-4.5" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Full screen</span></button>
+    <a class="rd-pdf" id="rd-pdf" href="#novels" target="_blank" rel="noopener">Open the PDF</a>
+  </div>
+  <div class="rd-stage" id="rd-stage">
+    <div class="rd-book" id="rd-book" hidden>
+      <div class="rd-page rd-left" id="rd-left"><canvas role="img" aria-label=""></canvas></div>
+      <div class="rd-page rd-right" id="rd-right"><canvas role="img" aria-label=""></canvas></div>
+    </div>
+    <div class="rd-status" id="rd-status" role="status"></div>
+  </div>
+  <div class="rd-bottom">
+    <button class="rd-nav" id="rd-prev" type="button" aria-label="Previous page"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Previous</span></button>
+    <div class="rd-scrub">
+      <label class="sr" for="rd-range">Page</label>
+      <input id="rd-range" type="range" min="1" max="2" value="1" step="1">
+      <span class="rd-pageno" id="rd-pageno" aria-hidden="true"></span>
+    </div>
+    <button class="rd-nav" id="rd-next" type="button" aria-label="Next page"><span>Next</span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false"><path d="M5 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  "use strict";
+
+  /* ───────── Your settings ───────── */
+  const PROFILE = {
+    // Your LinkedIn address, e.g. "https://www.linkedin.com/in/your-name/".
+    // Leave it empty to hide the LinkedIn button.
+    linkedin: ""
+  };
+
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  const desk = matchMedia("(min-width: 900px)");
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage unavailable */ } }
+  };
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+
+  const li = $("#linkedin-link");
+  if (PROFILE.linkedin && /^https:\/\/([a-z]+\.)?linkedin\.com\//i.test(PROFILE.linkedin)) { li.href = PROFILE.linkedin; li.hidden = false; }
+
+  /* ───────── header follows the world beneath it ───────── */
+  const hdr = $("#hdr");
+  const worlds = $$("[data-world]").filter((el) => el !== hdr);
+  const navLinks = $$(".hdr nav a");
+  let ticking = false;
+  function updateWorld() {
+    ticking = false;
+    const y = hdr.getBoundingClientRect().bottom + 2;
+    let cur = worlds[0];
+    for (const s of worlds) { const r = s.getBoundingClientRect(); if (r.top <= y && r.bottom > y) { cur = s; break; } }
+    if (hdr.dataset.world !== cur.dataset.world) hdr.dataset.world = cur.dataset.world;
+    navLinks.forEach((a) => { if (a.getAttribute("href") === "#" + cur.id) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); });
+  }
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(updateWorld); } }, { passive: true });
+  addEventListener("resize", updateWorld);
+  updateWorld();
+
+  /* ───────── entering a world: curtain or CRT ───────── */
+  const ovCurtain = $("#ov-curtain"), ovCrt = $("#ov-crt");
+  const seen = { novels: false, projects: false };
+  let playing = false, skipping = false, running = [], waits = [];
+  const BOOT = [
+    "SWAYAM SHAKYA PERSONAL COMPUTER",
+    "MEMORY TEST .......... 640K OK",
+    "",
+    "C:\\> CD \\PROJECTS",
+    "C:\\PROJECTS> DIR",
+    "  6 PROJECT(S)   2 WEBSITE(S)",
+    "C:\\PROJECTS> RUN PROJECTS.EXE"
+  ];
+  function anim(el, frames, opts) {
+    const a = el.animate(frames, Object.assign({ fill: "forwards" }, opts));
+    running.push(a);
+    if (skipping) a.finish();
+    return a.finished.catch(() => {});
+  }
+  function wait(ms) {
+    return new Promise((res) => {
+      if (skipping) return res();
+      const done = () => { clearTimeout(t); res(); };
+      const t = setTimeout(done, ms);
+      waits.push(done);
+    });
+  }
+  function skip() { skipping = true; running.forEach((a) => { try { a.finish(); } catch (e) {} }); waits.splice(0).forEach((f) => f()); }
+  const onSkipKey = (e) => { e.preventDefault(); skip(); };
+  function arm(ov) { skipping = false; running = []; waits = []; ov.hidden = false; ov.addEventListener("click", skip); document.addEventListener("keydown", onSkipKey, true); }
+  function disarm(ov) { ov.removeEventListener("click", skip); document.removeEventListener("keydown", onSkipKey, true); running.forEach((a) => { try { a.cancel(); } catch (e) {} }); running = []; ov.hidden = true; skipping = false; }
+  function jumpTo(el) { const top = el.getBoundingClientRect().top + scrollY - hdr.offsetHeight + 1; scrollTo({ top: Math.max(0, top), behavior: "instant" }); }
+
+  async function playCurtain(target, quick) {
+    const k = quick ? 0.55 : 1;
+    const L = $(".cur-l", ovCurtain), R = $(".cur-r", ovCurtain), T = $(".cur-title", ovCurtain);
+    arm(ovCurtain);
+    const close = { duration: 720 * k, easing: "cubic-bezier(.62,0,.32,1)" };
+    await Promise.all([
+      anim(L, [{ transform: "translateX(-101%)" }, { transform: "translateX(0)" }], close),
+      anim(R, [{ transform: "translateX(101%)" }, { transform: "translateX(0)" }], close)
+    ]);
+    jumpTo(target);
+    if (!quick) {
+      await anim(T, [{ opacity: 0, transform: "translateY(10px) scale(.98)" }, { opacity: 1, transform: "none" }], { duration: 480, easing: "ease-out" });
+      await wait(700);
+      await anim(T, [{ opacity: 1 }, { opacity: 0 }], { duration: 260, easing: "ease-in" });
+    }
+    const open = { duration: 1150 * k, easing: "cubic-bezier(.6,0,.2,1)" };
+    await Promise.all([
+      anim(L, [{ transform: "translateX(0) skewY(0deg)" }, { transform: "translateX(-60%) skewY(-1.5deg)", offset: .6 }, { transform: "translateX(-101%) skewY(0deg)" }], open),
+      anim(R, [{ transform: "translateX(0) skewY(0deg)" }, { transform: "translateX(60%) skewY(1.5deg)", offset: .6 }, { transform: "translateX(101%) skewY(0deg)" }], open)
+    ]);
+    disarm(ovCurtain);
+  }
+
+  async function playBoot(target, quick) {
+    const tube = $(".crt-tube", ovCrt), text = $("#crt-text");
+    text.textContent = "";
+    arm(ovCrt);
+    await anim(tube, [
+      { transform: "scale(0, .004)", filter: "brightness(4)" },
+      { transform: "scale(1, .004)", filter: "brightness(3)", offset: .45 },
+      { transform: "scale(1, 1)", filter: "brightness(1)" }
+    ], { duration: quick ? 280 : 560, easing: "ease-out" });
+    const lines = quick ? ["C:\\> CD \\PROJECTS", "C:\\PROJECTS> RUN PROJECTS.EXE"] : BOOT;
+    for (const line of lines) {
+      if (skipping) break;
+      text.textContent += line + "\n";
+      await wait(quick ? 110 : 200);
+    }
+    if (skipping) text.textContent = lines.join("\n") + "\n";
+    await wait(quick ? 140 : 380);
+    jumpTo(target);
+    await anim(ovCrt, [{ opacity: 1 }, { opacity: 0 }], { duration: 380, easing: "ease-in" });
+    disarm(ovCrt);
+  }
+
+  function focusHeading(name) { const h = document.getElementById(name + "-title"); if (h) h.focus({ preventScroll: true }); }
+  async function enterWorld(name) {
+    const target = document.getElementById(name);
+    if (!target || playing) return;
+    history.replaceState(null, "", "#" + name);
+    if (reduceMotion.matches) { jumpTo(target); focusHeading(name); return; }
+    playing = true;
+    const quick = seen[name];
+    seen[name] = true;
+    try { if (name === "novels") await playCurtain(target, quick); else await playBoot(target, quick); }
+    catch (e) { disarm(ovCurtain); disarm(ovCrt); jumpTo(target); }
+    finally { playing = false; focusHeading(name); updateWorld(); }
+  }
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("[data-door]");
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault();
+    enterWorld(a.dataset.door);
+  });
+
+  /* ───────── gold dust over the stage ───────── */
+  (function dust() {
+    const canvas = $("#dust");
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const sprite = document.createElement("canvas");
+    sprite.width = sprite.height = 32;
+    const sc = sprite.getContext("2d");
+    const g = sc.createRadialGradient(16, 16, 0, 16, 16, 16);
+    g.addColorStop(0, "rgba(255,240,196,1)");
+    g.addColorStop(.25, "rgba(243,214,140,.75)");
+    g.addColorStop(1, "rgba(214,173,87,0)");
+    sc.fillStyle = g; sc.fillRect(0, 0, 32, 32);
+    let w = 0, h = 0, parts = [], raf = 0, inView = false;
+    const spawn = (anywhere) => ({ x: Math.random() * w, y: anywhere ? Math.random() * h : h + 12, r: 1.5 + Math.random() * 6.5, vy: .07 + Math.random() * .32, ph: Math.random() * 6.283, sp: .003 + Math.random() * .009, a: .2 + Math.random() * .6 });
+    function size() {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      w = canvas.clientWidth; h = canvas.clientHeight;
+      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      parts = Array.from({ length: Math.round(Math.min(80, (w * h) / 15000)) }, () => spawn(true));
+    }
+    function frame() {
+      ctx.clearRect(0, 0, w, h);
+      for (const p of parts) {
+        p.y -= p.vy; p.ph += p.sp;
+        if (p.y < -16) Object.assign(p, spawn(false));
+        ctx.globalAlpha = p.a * (.55 + .45 * Math.sin(p.ph * 3));
+        ctx.drawImage(sprite, p.x + Math.sin(p.ph) * 14 - p.r, p.y - p.r, p.r * 2, p.r * 2);
+      }
+      ctx.globalAlpha = 1;
+      raf = requestAnimationFrame(frame);
+    }
+    function sync() {
+      const go = inView && !reduceMotion.matches && document.visibilityState === "visible";
+      if (go && !raf) { if (!w) size(); raf = requestAnimationFrame(frame); }
+      if (!go && raf) { cancelAnimationFrame(raf); raf = 0; }
+    }
+    new IntersectionObserver((es) => { inView = es[0].isIntersecting; sync(); }).observe($("#novels"));
+    document.addEventListener("visibilitychange", sync);
+    reduceMotion.addEventListener?.("change", () => { if (reduceMotion.matches) ctx.clearRect(0, 0, w, h); sync(); });
+    let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { if (w) size(); }, 200); });
+  })();
+
+  /* ───────── turn a book over ───────── */
+  $$("[data-turn]").forEach((b) => b.addEventListener("click", () => {
+    const f = b.closest(".act-cover").querySelector(".flip");
+    const on = f.classList.toggle("is-flipped");
+    b.textContent = on ? "Show the front cover" : "Turn the book over";
+  }));
+
+  /* ───────── the computer: projects list ───────── */
+  const rows = $$(".dir-row[data-proj]");
+  const allRows = $$(".dir-row");
+  const projs = $$(".proj");
+  const projIds = rows.map((r) => r.dataset.proj);
+  function selectProject(id) {
+    if (!projIds.includes(id)) return;
+    rows.forEach((r) => r.setAttribute("aria-current", r.dataset.proj === id ? "true" : "false"));
+    projs.forEach((p) => p.classList.toggle("is-active", p.id === id));
+    store.set("ss-project", id);
+  }
+  rows.forEach((r) => r.addEventListener("click", (e) => {
+    selectProject(r.dataset.proj);
+    if (desk.matches) {
+      e.preventDefault();
+      history.replaceState(null, "", "#" + r.dataset.proj);
+      if (e.detail === 0) document.getElementById(r.dataset.proj).focus({ preventScroll: true });
+    }
+  }));
+  $$(".dir-list").forEach((list) => list.addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+    const i = allRows.indexOf(document.activeElement);
+    if (i < 0) return;
+    e.preventDefault();
+    const n = allRows[(i + (e.key === "ArrowDown" ? 1 : -1) + allRows.length) % allRows.length];
+    n.focus();
+    if (n.dataset.proj && desk.matches) selectProject(n.dataset.proj);
+  }));
+  const savedProj = store.get("ss-project");
+  if (savedProj) selectProject(savedProj);
+
+
+  // Screen colour
+  const phBtn = $("#ph-btn");
+  function setPhosphor(c) {
+    document.documentElement.dataset.phosphor = c;
+    phBtn.textContent = "COLOR: " + c.toUpperCase();
+    phBtn.setAttribute("aria-label", "Screen colour " + c + ". Switch to " + (c === "green" ? "amber" : "green"));
+    store.set("ss-phosphor", c);
+  }
+  setPhosphor(store.get("ss-phosphor") === "green" ? "green" : "amber");
+  phBtn.addEventListener("click", () => setPhosphor(document.documentElement.dataset.phosphor === "green" ? "amber" : "green"));
+
+  /* ───────── the command prompt ───────── */
+  const log = $("#prompt-log"), cmd = $("#cmd");
+  const hist = []; let hi = 0;
+  const out = (...lines) => {
+    lines.forEach((t) => { const d = document.createElement("div"); d.textContent = t; log.append(d); });
+    while (log.childElementCount > 60) log.firstElementChild.remove();
+    log.scrollTop = log.scrollHeight;
+  };
+  const titleOf = (id) => Array.from(document.getElementById(id).querySelector(".proj-t").children).map((c) => c.textContent.trim()).join(" – ");
+  const nameOf = (row) => row.children[1].textContent;
+  function showTarget(el) {
+    const top = el.getBoundingClientRect().top + scrollY - hdr.offsetHeight - 12;
+    scrollTo({ top, behavior: reduceMotion.matches ? "auto" : "smooth" });
+  }
+  function run(raw) {
+    const [c, ...rest] = raw.trim().toLowerCase().split(/\s+/);
+    const arg = rest.join(" ");
+    switch (c) {
+      case "help": case "?":
+        out("HELP       this list", "DIR        list the projects", "OPEN n     open item n (1-" + allRows.length + ")", "SITES      the two websites", "WORKS      notable works (GYRO-76)", "GITHUB     more of my work", "NOVELS     go to the novels", "ABOUT      about me", "COLOR      switch amber and green", "CLS        clear the screen");
+        break;
+      case "dir": case "ls":
+        allRows.forEach((r, i) => {
+          const id = r.dataset.proj, site = r.dataset.site;
+          out(`${i + 1}  ${nameOf(r).padEnd(9)} ${id ? titleOf(id) : document.getElementById(site).querySelector("h4").textContent}`);
+        });
+        break;
+      case "open": case "cd": case "run": case "type": {
+        const n = parseInt(arg, 10);
+        let row = n >= 1 && n <= allRows.length ? allRows[n - 1] : allRows.find((r) => nameOf(r).toLowerCase() === arg || r.dataset.proj === arg || r.dataset.site === arg);
+        if (!arg) { out("Which one? Try OPEN 3."); break; }
+        if (!row) { out("File not found. Type DIR to see the list."); break; }
+        if (row.dataset.proj) {
+          selectProject(row.dataset.proj);
+          out("Opened " + titleOf(row.dataset.proj) + ".");
+          if (!desk.matches) showTarget(document.getElementById(row.dataset.proj));
+        } else {
+          const el = document.getElementById(row.dataset.site);
+          out("Opened " + el.querySelector("h4").textContent + ". It's below the monitor.");
+          showTarget(el);
+        }
+        break;
+      }
+      case "sites": case "websites":
+        out((allRows.length - 2) + "  TUTORBTL  TutorBTL (founder, 2020)", (allRows.length - 1) + "  MCSC      Manaslu Computer Science Club (co-founder, 2020)");
+        showTarget($("#websites"));
+        break;
+      case "github": case "more":
+        out("More of my work: github.com/requiemdoomed");
+        showTarget($(".gh"));
+        break;
+      case "works": case "reading": case "essay":
+        out(allRows.length + "  GYRO76    GYRO-76, college application essay (Feb 2022)");
+        showTarget($("#notable-works"));
+        break;
+      case "novels": case "books":
+        out("Raising the curtain...");
+        enterWorld("novels");
+        break;
+      case "about": case "whoami":
+        out("Swayam Shakya. Writer/Author. Bachelor of Computer Science (Honours), Algoma University, Brampton.", "Undergraduate AI/ML Researcher and Teaching Assistant at Algoma University.");
+        showTarget($("#about"));
+        break;
+      case "color": case "colour": case "phosphor":
+        setPhosphor(document.documentElement.dataset.phosphor === "green" ? "amber" : "green");
+        out("Screen colour: " + document.documentElement.dataset.phosphor + ".");
+        break;
+      case "cls": case "clear":
+        log.textContent = "";
+        break;
+      case "exit": case "lobby":
+        showTarget($("#top"));
+        break;
+      default:
+        out("Bad command or file name: " + c.toUpperCase(), "Type HELP for a list of commands.");
+    }
+  }
+  $("#prompt").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const raw = cmd.value.trim();
+    cmd.value = "";
+    if (!raw) return;
+    hist.push(raw); hi = hist.length;
+    out("C:\\PROJECTS>" + raw);
+    run(raw);
+  });
+  cmd.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowUp" && hi > 0) { e.preventDefault(); cmd.value = hist[--hi]; }
+    else if (e.key === "ArrowDown") { e.preventDefault(); hi = Math.min(hist.length, hi + 1); cmd.value = hist[hi] || ""; }
+  });
+
+  /* ───────── GYRO-76: feed the printout ───────── */
+  const printBtn = $("#print-btn"), paper = $("#gyro-paper"), paperBody = $(".paper-body", paper);
+  printBtn.addEventListener("click", () => {
+    const open = printBtn.getAttribute("aria-expanded") !== "true";
+    printBtn.setAttribute("aria-expanded", String(open));
+    printBtn.textContent = open ? "FOLD IT BACK UP" : "PRINT THE FULL ESSAY";
+    if (open) {
+      paper.classList.add("is-open");
+      paperBody.style.maxHeight = paperBody.scrollHeight + "px";
+    } else {
+      paperBody.style.maxHeight = paperBody.scrollHeight + "px";
+      void paperBody.offsetHeight;
+      paperBody.style.maxHeight = "";
+      paper.classList.remove("is-open");
+      const top = $("#gyro-76").getBoundingClientRect().top;
+      if (top < 0) showTarget($("#gyro-76"));
+    }
+  });
+  paperBody.addEventListener("transitionend", () => { if (paper.classList.contains("is-open")) paperBody.style.maxHeight = "none"; });
+
+  /* ───────── the book reader ───────── */
+  const BOOKS = {
+    "the-mirage-in-the-mist": {
+      title: "The Mirage in the Mist", pdf: "novels/the-mirage-in-the-mist.pdf",
+      toc: [["Front cover", 1], ["Prologue", 4], ["Contents", 5], ["Part 1", 7], ["I. The Symphony of Assimilation", 8], ["II. The Droplets of Shambles", 18], ["III. The Albatross of Misery", 28], ["Part 2", 41], ["IV. The Missing Pieces", 42], ["V. The Unspoken Veracity", 65], ["VI. The Ripple Effect", 81], ["VII. The Malevolent Inception", 95], ["The end", 128], ["Back cover", 130]]
+    },
+    "the-hanging-lord": {
+      title: "The Hanging Lord", pdf: "novels/the-hanging-lord.pdf",
+      toc: [["Front cover", 1], ["Title page", 2], ["Epigraph", 4], ["Contents", 6], ["I. The Village That Sleeps Before Sunset", 7], ["II. The Hour of the Lamp", 39], ["III. The Throat of the Hill", 85], ["IV. A Rope for a Son", 119], ["V. The Tenth Bundle", 167], ["The end", 199], ["Back cover", 201]]
+    }
+  };
+  const R = {
+    dlg: $("#reader"), stage: $("#rd-stage"), book: $("#rd-book"), left: $("#rd-left"), right: $("#rd-right"),
+    status: $("#rd-status"), title: $("#reader-title"), sel: $("#rd-chapter"), pdf: $("#rd-pdf"),
+    range: $("#rd-range"), pageno: $("#rd-pageno"), prev: $("#rd-prev"), next: $("#rd-next")
+  };
+  const docs = {};
+  let rs = null, opener = null, pdfjsReady = null;
+
+  function loadPdfjs() {
+    if (window.pdfjsLib) return Promise.resolve(window.pdfjsLib);
+    if (pdfjsReady) return pdfjsReady;
+    pdfjsReady = new Promise((res, rej) => {
+      const s = document.createElement("script");
+      s.src = "vendor/pdf.min.js";
+      s.onload = () => {
+        const lib = window.pdfjsLib;
+        if (!lib) { pdfjsReady = null; rej(new Error("PDF.js did not load")); return; }
+        lib.GlobalWorkerOptions.workerSrc = new URL("vendor/pdf.worker.min.js", document.baseURI).href;
+        res(lib);
+      };
+      s.onerror = () => { pdfjsReady = null; rej(new Error("PDF.js did not load")); };
+      document.head.appendChild(s);
+    });
+    return pdfjsReady;
+  }
+  function getDoc(key) {
+    if (!docs[key]) {
+      docs[key] = loadPdfjs().then((lib) => {
+        const task = lib.getDocument({ url: BOOKS[key].pdf, isEvalSupported: false });
+        task.onProgress = ({ loaded, total }) => { if (rs && rs.key === key && !rs.doc && total) setStatus(`Opening the book… ${Math.min(100, Math.round((loaded / total) * 100))}%`); };
+        return task.promise;
+      });
+      docs[key].catch(() => { delete docs[key]; });
+    }
+    return docs[key];
+  }
+  function setStatus(text, linkHref) {
+    R.status.textContent = "";
+    if (!text) return;
+    const p = document.createElement("span"); p.textContent = text; R.status.append(p);
+    if (linkHref) { const a = document.createElement("a"); a.href = linkHref; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Open the PDF instead"; R.status.append(a); }
+  }
+
+  async function openReader(key, page) {
+    const b = BOOKS[key];
+    if (!b) return;
+    opener = document.activeElement;
+    const st = { key, b, doc: null, n: 0, page: null, cache: new Map(), pending: new Map(), chain: Promise.resolve(), busy: false };
+    rs = st;
+    R.title.textContent = b.title;
+    R.pdf.href = b.pdf;
+    R.sel.textContent = "";
+    b.toc.forEach(([label, p]) => R.sel.add(new Option(label, String(p))));
+    R.book.hidden = true;
+    setStatus("Opening the book…");
+    document.documentElement.classList.add("reading");
+    if (!R.dlg.open) R.dlg.showModal();
+    R.dlg.focus();
+    $("#rd-close").focus();
+    history.replaceState(null, "", "#read-" + key);
+    try {
+      const doc = await getDoc(key);
+      if (rs !== st) return;
+      const first = await doc.getPage(1);
+      st.aspect = first.getViewport({ scale: 1 }).width / first.getViewport({ scale: 1 }).height;
+      st.doc = doc; st.n = doc.numPages;
+      R.range.max = String(st.n);
+      const saved = parseInt(store.get("ss-read-" + key) || "1", 10) || 1;
+      layout();
+      R.book.hidden = false;
+      setStatus("");
+      await show(clamp(page || saved, 1, st.n), 0);
+    } catch (err) {
+      if (rs !== st) return;
+      R.book.hidden = true;
+      setStatus("This book couldn’t be opened here.", b.pdf);
+    }
+  }
+
+  const pagesAt = (p) => {
+    if (rs.mode === "single") return [p];
+    const s = Math.floor(p / 2);
+    if (s === 0) return [null, 1];
+    return [2 * s, 2 * s + 1 <= rs.n ? 2 * s + 1 : null];
+  };
+  const anchorOf = (p) => rs.mode === "single" ? p : (Math.floor(p / 2) === 0 ? 1 : 2 * Math.floor(p / 2));
+  const nextAnchor = (p) => {
+    if (rs.mode === "single") return p < rs.n ? p + 1 : null;
+    const ns = Math.floor(p / 2) + 1;
+    return 2 * ns <= rs.n ? 2 * ns : null;
+  };
+  const prevAnchor = (p) => {
+    if (rs.mode === "single") return p > 1 ? p - 1 : null;
+    const s = Math.floor(p / 2);
+    return s === 0 ? null : (s - 1 === 0 ? 1 : 2 * (s - 1));
+  };
+
+  function layout() {
+    const cs = getComputedStyle(R.stage);
+    const W = R.stage.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    const H = R.stage.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+    const a = rs.aspect;
+    const zoom = R.stage.classList.contains("is-zoom");
+    const spread = !zoom && W >= 720 && W / H >= a * 1.35;
+    const mode = spread ? "spread" : "single";
+    // Zoomed: one page fitted to the width (scroll to read). Otherwise fit the screen.
+    const ph = zoom ? Math.max(120, Math.floor(Math.min(W * (W < 700 ? 1.8 : 1), 1400) / a)) : Math.max(120, Math.floor(Math.min(H, W / (spread ? 2 * a : a))));
+    const pw = ph * a;
+    // Supersample: render 1.5× the screen's pixel density (at least 2.5×, up to 4×),
+    // capped at about 8.3 megapixels per page (a 4K frame), then let the browser scale down.
+    const dev = window.devicePixelRatio || 1;
+    let dpr = Math.min(4, Math.max(2.5, dev * 1.5));
+    dpr = Math.max(Math.min(dev, 4), Math.min(dpr, Math.sqrt(8.3e6 / (pw * ph))));
+    const bytes = pw * ph * dpr * dpr * 4;
+    const maxCache = Math.max(4, Math.min(12, Math.floor(180e6 / bytes)));
+    if (mode !== rs.mode || ph !== rs.ph || dpr !== rs.dpr) { rs.cache.clear(); rs.pending.clear(); }
+    Object.assign(rs, { mode, ph, pw, dpr, zoom, maxCache });
+    R.book.classList.toggle("is-spread", spread);
+    R.right.hidden = !spread;
+    [R.left, R.right].forEach((box) => { box.style.width = pw + "px"; box.style.height = ph + "px"; });
+  }
+
+  function renderPage(num) {
+    const st = rs;
+    if (st.cache.has(num)) return Promise.resolve(st.cache.get(num));
+    if (st.pending.has(num)) return st.pending.get(num);
+    const ph = st.ph, dpr = st.dpr;
+    const job = st.chain.then(async () => {
+      const page = await st.doc.getPage(num);
+      const base = page.getViewport({ scale: 1 });
+      const vp = page.getViewport({ scale: (ph * dpr) / base.height });
+      const c = document.createElement("canvas");
+      c.width = Math.ceil(vp.width); c.height = Math.ceil(vp.height);
+      const ctx = c.getContext("2d", { alpha: false });
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, c.width, c.height);
+      ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
+      await page.render({ canvasContext: ctx, viewport: vp, intent: "display", annotationMode: 0 }).promise;
+      if (st.ph === ph && st.dpr === dpr) {
+        st.cache.set(num, c);
+        while (st.cache.size > st.maxCache) st.cache.delete(st.cache.keys().next().value);
+      }
+      st.pending.delete(num);
+      return c;
+    });
+    st.chain = job.catch(() => {});
+    st.pending.set(num, job);
+    return job;
+  }
+  // Copy a rendered page pixel for pixel (no resampling), so text stays sharp.
+  function drawTo(canvas, num) {
+    const img = num && rs.cache.get(num);
+    const w = img ? img.width : Math.ceil(rs.pw * rs.dpr), h = img ? img.height : Math.ceil(rs.ph * rs.dpr);
+    if (canvas.width !== w) canvas.width = w;
+    if (canvas.height !== h) canvas.height = h;
+    const ctx = canvas.getContext("2d", { alpha: false });
+    if (img) ctx.drawImage(img, 0, 0);
+    else { ctx.fillStyle = "#fffdf8"; ctx.fillRect(0, 0, w, h); }
+  }
+  function paint(box, num) {
+    const c = box.querySelector("canvas");
+    box.classList.toggle("is-blank", !num);
+    if (!num) { c.width = 1; c.height = 1; c.setAttribute("aria-label", ""); return; }
+    drawTo(c, num);
+    c.setAttribute("aria-label", `Page ${num} of ${rs.n}`);
+  }
+  function paintAll(p) {
+    const ps = pagesAt(p);
+    if (rs.mode === "single") paint(R.left, ps[0]);
+    else { paint(R.left, ps[0]); paint(R.right, ps[1]); }
+  }
+
+  function makeLeaf(box, origin) {
+    const el = document.createElement("div");
+    el.className = "rd-leaf";
+    el.innerHTML = '<div class="lf lf-front"><canvas></canvas><i class="lf-shade"></i></div><div class="lf lf-back"><canvas></canvas><i class="lf-shade"></i></div>';
+    Object.assign(el.style, { left: box.offsetLeft + "px", top: box.offsetTop + "px", width: rs.pw + "px", height: rs.ph + "px", transformOrigin: origin + " center" });
+    R.book.append(el);
+    return { el, front: el.children[0], back: el.children[1] };
+  }
+  async function turn(cur, target, dir) {
+    const a = pagesAt(cur), b = pagesAt(target);
+    await Promise.all([...a, ...b].filter(Boolean).map(renderPage));
+    const ease = "cubic-bezier(.42,.08,.25,1)", dur = 820;
+    const shade = (leaf, f1, f2) => Promise.all([
+      leaf.front.lastChild.animate([{ opacity: f1[0] }, { opacity: f1[1] }], { duration: dur, easing: ease, fill: "forwards" }).finished,
+      leaf.back.lastChild.animate([{ opacity: f2[0] }, { opacity: f2[1] }], { duration: dur, easing: ease, fill: "forwards" }).finished
+    ]);
+    if (rs.mode === "spread") {
+      if (dir > 0) {
+        const leaf = makeLeaf(R.right, "left");
+        drawTo(leaf.front.firstChild, a[1]); drawTo(leaf.back.firstChild, b[0]);
+        paint(R.right, b[1]);
+        await Promise.all([leaf.el.animate([{ transform: "rotateY(0deg) translateZ(0)" }, { transform: "rotateY(-90deg) translateZ(18px)", offset: .5 }, { transform: "rotateY(-180deg) translateZ(0)" }], { duration: dur, easing: ease, fill: "forwards" }).finished, shade(leaf, [0, .6], [.6, 0])]);
+        paint(R.left, b[0]);
+        leaf.el.remove();
+      } else {
+        const leaf = makeLeaf(R.left, "right");
+        drawTo(leaf.front.firstChild, a[0]); drawTo(leaf.back.firstChild, b[1]);
+        paint(R.left, b[0]);
+        await Promise.all([leaf.el.animate([{ transform: "rotateY(0deg) translateZ(0)" }, { transform: "rotateY(90deg) translateZ(18px)", offset: .5 }, { transform: "rotateY(180deg) translateZ(0)" }], { duration: dur, easing: ease, fill: "forwards" }).finished, shade(leaf, [0, .6], [.6, 0])]);
+        paint(R.right, b[1]);
+        leaf.el.remove();
+      }
+    } else {
+      const leaf = makeLeaf(R.left, "left");
+      if (dir > 0) {
+        drawTo(leaf.front.firstChild, a[0]);
+        paint(R.left, b[0]);
+        await leaf.el.animate([{ transform: "rotateY(0deg)", opacity: 1 }, { transform: "rotateY(-60deg)", opacity: 1, offset: .55 }, { transform: "rotateY(-100deg)", opacity: 0 }], { duration: 620, easing: ease, fill: "forwards" }).finished;
+      } else {
+        drawTo(leaf.front.firstChild, b[0]);
+        await leaf.el.animate([{ transform: "rotateY(-100deg)", opacity: 0 }, { transform: "rotateY(-60deg)", opacity: 1, offset: .45 }, { transform: "rotateY(0deg)", opacity: 1 }], { duration: 620, easing: ease, fill: "forwards" }).finished;
+        paint(R.left, b[0]);
+      }
+      leaf.el.remove();
+    }
+  }
+
+  async function show(p, dir) {
+    const st = rs;
+    if (!st || !st.doc) return;
+    const target = anchorOf(clamp(p, 1, st.n));
+    const cur = st.page;
+    await Promise.all(pagesAt(target).filter(Boolean).map(renderPage));
+    if (rs !== st) return;
+    if (dir && cur != null && !reduceMotion.matches) await turn(cur, target, dir);
+    else {
+      paintAll(target);
+      if (cur != null && !reduceMotion.matches) R.book.animate([{ opacity: .25 }, { opacity: 1 }], { duration: 260, easing: "ease-out" });
+    }
+    if (rs !== st) return;
+    st.page = target;
+    if (st.zoom) R.stage.scrollTop = 0;
+    updateUI();
+    const n1 = nextAnchor(target), n2 = n1 != null ? nextAnchor(n1) : null;
+    const ahead = [n1, prevAnchor(target), st.maxCache >= 8 ? n2 : null].filter((x) => x != null);
+    ahead.forEach((q) => pagesAt(q).filter(Boolean).forEach((n) => renderPage(n).catch(() => {})));
+  }
+  function updateUI() {
+    const [a, b] = pagesAt(rs.page);
+    const label = rs.mode === "spread" && a && b ? `Pages ${a}–${b} of ${rs.n}` : `Page ${a || b} of ${rs.n}`;
+    R.pageno.textContent = label;
+    R.range.value = String(rs.page);
+    R.range.setAttribute("aria-valuetext", label);
+    R.prev.setAttribute("aria-disabled", String(prevAnchor(rs.page) == null));
+    R.next.setAttribute("aria-disabled", String(nextAnchor(rs.page) == null));
+    const at = b || a;
+    let idx = 0;
+    rs.b.toc.forEach(([, pg], i) => { if (pg <= at) idx = i; });
+    R.sel.selectedIndex = idx;
+    store.set("ss-read-" + rs.key, String(rs.page));
+    updateResume(rs.key);
+  }
+  function step(d) {
+    if (!rs || !rs.doc || rs.busy) return;
+    const t = d > 0 ? nextAnchor(rs.page) : prevAnchor(rs.page);
+    if (t == null) return;
+    const st = rs; st.busy = true;
+    show(t, d).catch(() => {}).finally(() => { st.busy = false; });
+  }
+  function jump(p) {
+    if (!rs || !rs.doc || rs.busy) return;
+    const st = rs; st.busy = true;
+    show(p, 0).catch(() => {}).finally(() => { st.busy = false; });
+  }
+  R.next.addEventListener("click", () => step(1));
+  R.prev.addEventListener("click", () => step(-1));
+  R.sel.addEventListener("change", () => jump(parseInt(R.sel.value, 10)));
+  R.range.addEventListener("input", () => { if (rs && rs.n) R.pageno.textContent = `Page ${R.range.value} of ${rs.n}`; });
+  R.range.addEventListener("change", () => jump(parseInt(R.range.value, 10)));
+  $("#rd-close").addEventListener("click", () => R.dlg.close());
+  const zoomBtn = $("#rd-zoom"), fullBtn = $("#rd-full");
+  function relayout() {
+    if (!rs || !rs.doc) return;
+    const p = rs.page || 1;
+    layout(); rs.page = null;
+    show(p, 0).catch(() => {});
+  }
+  function setZoom(on) {
+    R.stage.classList.toggle("is-zoom", on);
+    zoomBtn.setAttribute("aria-pressed", String(on));
+    relayout();
+  }
+  zoomBtn.addEventListener("click", () => setZoom(!R.stage.classList.contains("is-zoom")));
+  if (document.fullscreenEnabled && R.dlg.requestFullscreen) fullBtn.hidden = false;
+  function toggleFull() {
+    if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+    else R.dlg.requestFullscreen().catch(() => { fullBtn.hidden = true; });
+  }
+  fullBtn.addEventListener("click", toggleFull);
+  document.addEventListener("fullscreenchange", () => fullBtn.setAttribute("aria-pressed", String(!!document.fullscreenElement)));
+  R.dlg.addEventListener("keydown", (e) => {
+    if (e.target === R.range || e.target === R.sel || !rs) return;
+    if (e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); step(1); }
+    else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); step(-1); }
+    else if (e.key === "Home") { e.preventDefault(); jump(1); }
+    else if (e.key === "End") { e.preventDefault(); jump(rs.n); }
+    else if ((e.key === "z" || e.key === "Z") && !e.metaKey && !e.ctrlKey) { e.preventDefault(); zoomBtn.click(); }
+    else if ((e.key === "f" || e.key === "F") && !e.metaKey && !e.ctrlKey && !fullBtn.hidden) { e.preventDefault(); toggleFull(); }
+  });
+  let sx = null, sy = 0;
+  R.stage.addEventListener("pointerdown", (e) => { if (e.isPrimary) { sx = e.clientX; sy = e.clientY; } });
+  R.stage.addEventListener("pointercancel", () => { sx = null; });
+  R.stage.addEventListener("pointerup", (e) => {
+    if (sx == null) return;
+    const dx = e.clientX - sx, dy = e.clientY - sy;
+    sx = null;
+    if (!rs?.zoom && Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { step(dx < 0 ? 1 : -1); return; }
+    if (!rs?.zoom && Math.abs(dx) < 8 && Math.abs(dy) < 8 && e.target.closest(".rd-page")) {
+      const r = R.book.getBoundingClientRect();
+      step(e.clientX > r.left + r.width / 2 ? 1 : -1);
+    }
+  });
+  R.dlg.addEventListener("close", () => {
+    document.documentElement.classList.remove("reading");
+    if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+    const key = rs && rs.key;
+    rs = null;
+    [R.left, R.right].forEach((box) => { const c = box.querySelector("canvas"); c.width = 1; c.height = 1; });
+    $$(".rd-leaf", R.book).forEach((l) => l.remove());
+    if (key) history.replaceState(null, "", "#" + key);
+    if (opener && document.contains(opener)) opener.focus({ preventScroll: true });
+  });
+  let rz;
+  addEventListener("resize", () => {
+    if (!R.dlg.open || !rs || !rs.doc) return;
+    clearTimeout(rz);
+    rz = setTimeout(relayout, 180);
+  });
+
+  function updateResume(key) {
+    const el = document.querySelector(`[data-resume="${key}"]`);
+    if (!el) return;
+    const p = parseInt(store.get("ss-read-" + key) || "0", 10);
+    el.hidden = !(p > 1);
+    if (p > 1) el.querySelector(".resume-p").textContent = String(p);
+  }
+  Object.keys(BOOKS).forEach(updateResume);
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-read]");
+    if (!b) return;
+    openReader(b.dataset.read, b.dataset.page ? parseInt(b.dataset.page, 10) : undefined);
+  });
+
+  /* ───────── deep links ───────── */
+  function route() {
+    const h = decodeURIComponent(location.hash.slice(1));
+    if (!h) return;
+    if (h.startsWith("read-") && BOOKS[h.slice(5)]) {
+      const act = document.getElementById(h.slice(5));
+      if (act) act.scrollIntoView({ block: "start" });
+      if (!R.dlg.open) openReader(h.slice(5));
+      return;
+    }
+    if (projIds.includes(h)) {
+      selectProject(h);
+      const el = document.getElementById(desk.matches ? "projects" : h);
+      if (el) el.scrollIntoView({ block: "start" });
+    }
+  }
+  route();
+  addEventListener("hashchange", route);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TutorBTL offers friendly online and on-site tutoring to help school students learn with confidence.">
+  <title>TutorBTL | Learn with Confidence</title>
+  <style>
+    :root {
+      --navy: #16365c;
+      --teal: #21a99d;
+      --mint: #e9f8f5;
+      --ink: #243247;
+      --muted: #657287;
+      --white: #ffffff;
+      --line: #e5ebf1;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .container { width: min(1080px, 90%); margin: 0 auto; }
+    header {
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 76px;
+    }
+    .brand {
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -.7px;
+    }
+    .brand span { color: var(--teal); }
+    nav { display: flex; flex-wrap: wrap; gap: 22px; }
+    nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 600;
+      font-size: .95rem;
+    }
+    nav a:hover { color: var(--teal); }
+    .hero {
+      background: linear-gradient(135deg, #f3fbfa 0%, #ffffff 60%, #edf4fb 100%);
+      padding: 86px 0 78px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr .85fr;
+      align-items: center;
+      gap: 48px;
+    }
+    .eyebrow {
+      display: inline-block;
+      color: #087e75;
+      background: #dff6f1;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: .83rem;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+    h1 {
+      color: var(--navy);
+      font-size: clamp(2.5rem, 5vw, 4.25rem);
+      line-height: 1.08;
+      letter-spacing: -1.8px;
+      margin: 18px 0;
+    }
+    h1 span { color: var(--teal); }
+    .hero p { font-size: 1.12rem; max-width: 610px; color: var(--muted); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 2px solid var(--navy);
+      transition: transform .15s ease, background .15s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { color: white; background: var(--navy); }
+    .button.secondary { color: var(--navy); background: white; }
+    .hero-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: 0 18px 45px rgba(22,54,92,.08);
+    }
+    .icon-mark {
+      width: 72px; height: 72px;
+      display: grid; place-items: center;
+      border-radius: 18px;
+      background: var(--navy);
+      color: white;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    .icon-mark span { color: #61d7c7; }
+    .hero-card h2 { margin: 0 0 8px; color: var(--navy); }
+    .hero-card p { font-size: 1rem; margin-bottom: 0; }
+    section { padding: 76px 0; }
+    .section-heading { max-width: 690px; margin-bottom: 34px; }
+    .section-heading h2 { color: var(--navy); font-size: clamp(1.9rem, 3vw, 2.65rem); line-height: 1.2; margin: 0 0 12px; }
+    .section-heading p { margin: 0; color: var(--muted); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 25px;
+      background: white;
+    }
+    .card .symbol { font-size: 1.7rem; }
+    .card h3 { color: var(--navy); margin: 10px 0 8px; }
+    .card p { margin: 0; color: var(--muted); }
+    .about { background: #f7fafc; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 45px; align-items: start; }
+    .tutor-panel {
+      background: var(--navy);
+      color: white;
+      border-radius: 20px;
+      padding: 30px;
+    }
+    .avatar {
+      width: 76px; height: 76px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: #dff6f1; color: var(--navy);
+      font-size: 1.4rem; font-weight: 800;
+      margin-bottom: 18px;
+    }
+    .tutor-panel h3 { margin: 0; font-size: 1.55rem; }
+    .tutor-panel .credential { color: #a9e9df; font-weight: 700; margin-top: 4px; }
+    .tutor-panel p { color: #e5edf5; }
+    .about-copy h2 { color: var(--navy); font-size: 2.2rem; line-height: 1.2; margin: 0 0 15px; }
+    .about-copy p { color: var(--muted); }
+    .check-list { list-style: none; padding: 0; margin: 20px 0 0; }
+    .check-list li { margin: 10px 0; }
+    .check-list li::before { content: "✓"; color: var(--teal); font-weight: 800; margin-right: 10px; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .contact-item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+    }
+    .contact-item strong { display: block; color: var(--navy); margin-bottom: 5px; }
+    .contact-item a { color: #087e75; text-decoration: none; overflow-wrap: anywhere; }
+    .contact-item a:hover { text-decoration: underline; }
+    .contact-note { color: var(--muted); margin-top: 22px; }
+    footer { background: var(--navy); color: #e5edf5; padding: 25px 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap; }
+    footer strong { color: white; }
+    footer p { margin: 0; font-size: .9rem; }
+    @media (max-width: 760px) {
+      .nav { padding: 14px 0; align-items: flex-start; flex-direction: column; }
+      nav { gap: 14px; }
+      .hero { padding: 58px 0; }
+      .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .cards { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="TutorBTL home">Tutor<span>BTL</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#services">Tutoring</a>
+        <a href="#courses">Courses</a>
+        <a href="#about">About the Tutor</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Online &amp; On-site Tutoring</span>
+          <h1>Learn with confidence.<br><span>Grow with TutorBTL.</span></h1>
+          <p>
+            Friendly, student-focused tutoring designed to make learning clearer and more enjoyable.
+            Build strong foundations, ask questions freely, and take the next step toward your academic goals.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#contact">Get in Touch</a>
+            <a class="button secondary" href="#services">Explore Tutoring</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="icon-mark" aria-hidden="true">T<span>+</span></div>
+          <h2>A little support can go a long way.</h2>
+          <p>From core school subjects to STEM and introductory computer science, TutorBTL aims to make challenging topics easier to understand—one concept at a time.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Learning that works for you</h2>
+          <p>Choose a learning format that suits your schedule and study goals. Tutoring can be adapted to the student's current level and areas for improvement.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="symbol" aria-hidden="true">◎</div>
+            <h3>Online Tutoring</h3>
+            <p>Learn from home with convenient remote sessions focused on clear explanations, practice, and questions.</p>
+          </article>
+          <article class="card">
+            <div class="symbol" aria-hidden="true">⌂</div>
+            <h3>On-site Tutoring</h3>
+            <p>Get face-to-face learning support in an agreed location, subject to availability and arrangements.</p>
+          </article>
+          <article class="card">
+            <div class="symbol" aria-hidden="true">✳</div>
+            <h3>Academic &amp; STEM Support</h3>
+            <p>Build understanding in general school subjects, mathematics, science, and introductory computer science based on learning needs and tutor expertise.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="courses">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Courses Available</h2>
+          <p>Choose support for your grade level, with a focus on building strong concepts, confidence, and effective study habits.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="symbol" aria-hidden="true">📚</div>
+            <h3>Grades 1–10</h3>
+            <p><strong>All school subjects</strong></p>
+            <p>General academic support across subjects for students in Grades 1 through 10, tailored to each student's syllabus and learning needs.</p>
+          </article>
+          <article class="card">
+            <div class="symbol" aria-hidden="true">⚛</div>
+            <h3>10+2 — Physics</h3>
+            <p>Concept-focused support to help students understand key principles, practise problem-solving, and prepare for assessments.</p>
+          </article>
+          <article class="card">
+            <div class="symbol" aria-hidden="true">✍</div>
+            <h3>10+2 — English</h3>
+            <p>Support with reading comprehension, grammar, writing, and developing clear communication skills.</p>
+          </article>
+          <article class="card">
+            <div class="symbol" aria-hidden="true">💻</div>
+            <h3>10+2 — Computer Science</h3>
+            <p>Help with core computer science concepts, logical thinking, and programming fundamentals, according to the student's course syllabus.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <aside class="tutor-panel">
+          <div class="avatar" aria-hidden="true">SS</div>
+          <h3>Swayam Shakya</h3>
+          <div class="credential">10+2 in Science · GPA 3.40</div>
+          <p>Friendly, patient, and focused on helping students understand concepts step by step.</p>
+        </aside>
+        <div class="about-copy">
+          <h2>Meet your tutor</h2>
+          <p>
+            TutorBTL is led by Swayam Shakya, a Science-stream 10+2 graduate with a GPA of 3.40.
+            With an emphasis on clear communication and a supportive learning environment, Swayam aims to help students
+            strengthen their understanding, practise problem-solving, and approach schoolwork with greater confidence.
+          </p>
+          <p>
+            Every student learns differently. The goal is to explain topics patiently, identify areas that need more practice,
+            and encourage students to ask questions without hesitation.
+          </p>
+          <ul class="check-list">
+            <li>Step-by-step explanations</li>
+            <li>Supportive, student-friendly approach</li>
+            <li>Online and on-site learning options</li>
+            <li>Focus on understanding and practice</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Let's talk about your learning goals</h2>
+          <p>Contact TutorBTL to ask about subjects, tutoring format, availability, and session arrangements.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <strong>Phone</strong>
+            <a href="tel:+9779846931520">+(977) 984-693-1520</a>
+          </div>
+          <div class="contact-item">
+            <strong>Email</strong>
+            <a href="mailto:swayamshakya000@gmail.com">swayamshakya000@gmail.com</a>
+          </div>
+        </div>
+        <p class="contact-note">Online and on-site sessions are arranged based on student needs and availability.</p>
+        <div class="actions">
+          <a class="button primary" href="mailto:swayamshakya000@gmail.com?subject=TutorBTL%20Tutoring%20Inquiry">Email TutorBTL</a>
+          <a class="button secondary" href="tel:+9779846931520">Call TutorBTL</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p><strong>TutorBTL</strong> · Learn with Confidence. Grow with TutorBTL.</p>
+      <p>© <span id="year">2026</span> TutorBTL. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
