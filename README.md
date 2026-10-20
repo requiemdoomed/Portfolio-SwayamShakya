@@ -45,7 +45,7 @@ THE HANGING LORD
   chapter, or drag the page slider at the bottom to move through the book.
 
 THE MIRAGE IN THE MIST
-  About 30,000 words, also available in the book reader.
+  A mystery-suspense novel, about 30,000 words, also available in the book reader.
 
 THE LOTUS BLADE AND THE EMPTY HAND
   Currently in progress. Its cover is shown in the theatre, and it will be
@@ -83,36 +83,9 @@ My projects are grouped by area. Each one has a title, dates, a description,
 its main features, the languages and tools used, and the skills it
 demonstrates.
 
-  THESIS (1)
-    My computer science thesis: a driver-facing application for a smart mining
-    truck, which identifies how loaded the truck is and tracks trips on the
-    mine site. October 2026 to April 2027.
-
-  QUANTUM (2)
-    Research on quantum error correction (decoder latency) and on quantum
-    circuit design (a search for better circuits using evolutionary methods).
-    Both were completed from June to October 2026.
-
-  AI (5)
-    Machine learning and data projects, including an energy prediction model,
-    a geospatial ore-field tool, a physics-related vision project, a speech
-    and translation tool, and an AI quiz generator that builds quizzes from
-    documents.
-
-  SYSTEMS (2)
-    Low-level and embedded projects: a real-time operating system for bare-metal
-    hardware, and a swarm-robotics project.
-
-  APPS (3)
-    Applications, including a chess training tool, a personal finance
-    assistant, and a learning management system.
-
-Project files will be shared on each project page as they become available.
-Until then, the page marks them as coming soon.
-
+ 
 A note on accuracy: each project's features, languages and tools describe what
-the project was designed to do. Where a detail is still being confirmed, the
-project page will be updated.
+the project was designed to do. 
 
 
 WEBSITES
@@ -141,32 +114,6 @@ below, or connect with me on LinkedIn.
 
   LinkedIn:  (added by the site owner)
   GitHub:    https://github.com/requiemdoomed
-
-
-SHARING THIS SITE
------------------
-Copy the address at the top of this file to share the portfolio. Each section
-can also be opened directly with a link that ends in its name, for example:
-
-  .../Portfolio-SwayamShakya/#novels                       The theatre
-  .../Portfolio-SwayamShakya/#read-the-hanging-lord         The Hanging Lord
-  .../Portfolio-SwayamShakya/#read-the-mirage-in-the-mist   The Mirage in the Mist
-  .../Portfolio-SwayamShakya/#projects                      The projects
-  .../Portfolio-SwayamShakya/#websites                      The websites
-  .../Portfolio-SwayamShakya/#gyro-76                       The essay
-  .../Portfolio-SwayamShakya/#about                         About
-
-
-SCREENSHOTS
------------
-Pictures of the site are in the screenshots/ folder:
-
-  screenshots/01-lobby-desktop.png     The opening lobby (desktop)
-  screenshots/02-theatre-desktop.png   The novels theatre (desktop)
-  screenshots/03-reader-desktop.png    The book reader, The Hanging Lord (desktop)
-  screenshots/04-projects-desktop.png  The projects computer (desktop)
-  screenshots/05-lobby-phone.png       The opening lobby (phone)
-  screenshots/06-projects-phone.png    The projects computer (phone)
 
 
 PRIVACY
