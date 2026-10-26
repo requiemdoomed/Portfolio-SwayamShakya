@@ -1,8 +1,8 @@
-SWAYAM SHAKYA
-A Portfolio of Novels, Projects and Writing
+My Portfolio
 ==============================================
 
 Website:   https://requiemdoomed.github.io/Portfolio-SwayamShakya/
+
 GitHub:    https://github.com/requiemdoomed
 
 
